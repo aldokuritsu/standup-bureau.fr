@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import SeeAlso from '../../../components/SeeAlso.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout FlexiSpot : ce que vaut le spécialiste"
+  description="FlexiSpot, marque spécialisée dans le bureau réglable : gammes E7 et E9, garantie, retours, livraison. Ce qu’elle apporte face à IKEA et aux marques Amazon."
+  crumbs={[
+    { label: 'Marques et modèles', href: '/marques-et-modeles/' },
+    { label: 'FlexiSpot' },
+  ]}
+  silo="marques"
+  currentPath="/marques-et-modeles/bureau-assis-debout-flexispot/"
+  h1="Bureau assis-debout FlexiSpot : <em>ce que vaut le spécialiste</em>"
+  meta={['Conditions relevées sur flexispot.fr le 2 octobre 2026']}
+>
+  <p slot="lead">
+    FlexiSpot ne vend presque que du mobilier réglable. On paie un peu plus
+    cher qu’une marque généraliste, en échange d’une gamme large et d’une
+    garantie longue. Une fiche de notre
+    <a href="/marques-et-modeles/">dossier sur les marques de bureaux assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Une marque spécialisée, avec des cadres et des bureaux complets à moteur, dont les familles E7 et E9.',
+      'Garantie annoncée « jusqu’à 20 ans », retours sous 30 jours, livraison gratuite en France : lisez ce que couvre la garantie sur le modèle visé.',
+      'Bon choix si vous voulez un cadre robuste ou une grande course de hauteur.',
+    ]}
+  />
+
+  <h2>Ce que la marque annonce</h2>
+  <p>
+    Sur son site français, FlexiSpot met en avant trois engagements : la
+    livraison gratuite en France, en Belgique et au Luxembourg, un retour
+    possible sous 30 jours et une garantie pouvant aller jusqu’à 20 ans.
+    Le mot important est « jusqu’à » : la durée varie selon les produits, et
+    souvent entre le cadre et les composants électriques. Vérifiez-la sur la
+    fiche du modèle qui vous intéresse avant de commander.
+  </p>
+
+  <h2>La gamme</h2>
+  <p>
+    Le site met en avant la famille E7, qui comprend une version PRO, et le
+    modèle E9. La marque vend aussi des cadres seuls, à équiper de votre propre
+    plateau, ainsi que des accessoires : tiroirs sous plateau, goulottes de
+    câbles, tapis. Pour comparer les modèles entre eux, regardez trois lignes de
+    chaque fiche : la plage de hauteur, la charge maximale et le nombre de
+    segments par colonne.
+  </p>
+
+  <h2>Face aux autres options</h2>
+  <p>
+    Face au rayon
+    <a href="/marques-et-modeles/bureau-assis-debout-ikea/">assis-debout d’IKEA</a>,
+    FlexiSpot offre plus de choix de cadres et de formats, mais pas d’essai en
+    magasin. Face aux marques entrée de gamme
+    <a href="/marques-et-modeles/bureau-assis-debout-amazon/">qu’on trouve sur Amazon</a>,
+    l’argument tient surtout à la garantie et au service après-vente d’une
+    marque identifiée. Une partie de la gamme FlexiSpot est d’ailleurs aussi
+    vendue sur Amazon : comparez le prix, mais aussi le vendeur.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Vous voulez une marque spécialisée et un interlocuteur identifié',
+      'Vous cherchez un cadre seul de qualité pour votre plateau',
+      'Vous êtes grand et cherchez une course de hauteur généreuse',
+    ]}
+    notFor={[
+      'Votre budget est au plus bas',
+      'Vous tenez à essayer le bureau avant de l’acheter',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('flexispot bureau assis debout')} title="FlexiSpot sur Amazon" />
+
+  <p>
+    Fiche détaillée :
+    <a href="/bureaux/flexispot-e6-cadre/">cadre FlexiSpot E6</a>
+    (double moteur, charge 160&nbsp;kg).
+  </p>
+
+  <Sources items={[S.flexispot, S.inrsSed]} />
+
+  <SeeAlso>
+    Un bon cadre ne suffit pas : voici
+    <a href="/ergonomie/bureau-ergonomique-assis-debout/">les réglages d’un bureau assis-debout ergonomique</a>
+    à faire dès le montage.
+  </SeeAlso>
+</BaseLayout>

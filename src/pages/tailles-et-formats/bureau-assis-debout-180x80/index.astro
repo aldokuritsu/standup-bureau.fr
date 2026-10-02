@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout 180x80 : la grande largeur"
+  description="Bureau assis-debout 180×80 : le format recommandé par l’INRS en largeur. Pour qui, combien d’écrans, quel cadre choisir et ce qu’il faut prévoir à la livraison."
+  crumbs={[
+    { label: 'Tailles et formats', href: '/tailles-et-formats/' },
+    { label: '180×80' },
+  ]}
+  silo="tailles"
+  currentPath="/tailles-et-formats/bureau-assis-debout-180x80/"
+  h1="Bureau assis-debout 180×80 : <em>la largeur recommandée</em>"
+>
+  <p slot="lead">
+    180 cm, c’est la largeur que l’INRS recommande pour un poste sur écran,
+    160 étant seulement toléré. Le 180×80 laisse travailler sur écran et sur
+    papier en même temps, ou aligner deux grands écrans sans se serrer. Une
+    page de notre
+    <a href="/tailles-et-formats/">guide pour choisir la taille de son bureau</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Deux 27 pouces avec de la marge, ou deux écrans plus des documents étalés.',
+      'Plateau long et lourd : un cadre à deux moteurs, avec une charge confortable.',
+      'Vérifiez que le plateau passe dans l’escalier et les portes avant de commander.',
+    ]}
+  />
+
+  <h2>Pour qui ce format est fait</h2>
+  <p>
+    Pour ceux qui travaillent sur écran et sur papier, avec une tablette
+    graphique, un deuxième ordinateur ou des plans à déplier. Deux écrans de
+    27 pouces prennent environ 120 cm : sur 180, il reste 30 cm de chaque côté.
+    Trois écrans de 24 pouces, environ 160 cm, tiennent aussi, mais la
+    profondeur devient alors juste : avec plusieurs écrans, l’INRS évoque
+    jusqu’à 110 cm.
+  </p>
+
+  <h2>Le cadre qui va avec</h2>
+  <p>
+    Un plateau long fait levier sur la structure. Choisissez un cadre dont la
+    largeur réglable accepte 180 cm, de préférence à deux moteurs, et dont la
+    charge maximale couvre largement plateau et équipements. En position haute,
+    c’est là que les cadres trop légers montrent leurs limites.
+  </p>
+
+  <h2>Alternatives</h2>
+  <p>
+    Si la pièce ne permet pas 1,80 m de mur, le
+    <a href="/tailles-et-formats/bureau-assis-debout-160x80/">160×80, format de référence</a>,
+    reste conforme aux repères. Et si c’est la profondeur qui vous manque pour
+    trois écrans, un
+    <a href="/tailles-et-formats/bureau-assis-debout-angle/">bureau assis-debout en angle</a>
+    est plus adapté.
+  </p>
+
+  <ForWho
+    forWho={['Une pièce avec un grand mur libre', 'Un travail mêlant écran et documents']}
+    notFor={['Une chambre ou un studio', 'Un accès difficile pour un plateau de 1,80 m']}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout 180x80')} title="Bureaux 180×80" />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

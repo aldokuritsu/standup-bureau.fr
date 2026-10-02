@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Écrire à Standup Bureau : signaler une erreur, un prix périmé, une question éditoriale ou légale."
+  crumbs={[{ label: 'Contact' }]}
+  variant="plain"
+  eyebrow="Nous écrire"
+  h1="Une erreur, <em>une question ?</em>"
+>
+  <p slot="lead">
+    Un prix a changé, une fiche est périmée, un chiffre vous semble faux :
+    écrivez-nous, nous corrigeons.
+  </p>
+
+  <h2>Adresse</h2>
+  <p>
+    <a href="mailto:contact@standup-bureau.com">contact@standup-bureau.com</a>
+  </p>
+  <p>
+    Pour une demande légale, précisez-le dans l’objet du message.
+  </p>
+
+  <div class="note">
+    <p class="note__title">Pas de conseil médical</p>
+    <p>
+      Nous ne pouvons pas répondre aux questions de santé personnelles. Si une
+      douleur persiste, consultez un médecin ou un kinésithérapeute.
+    </p>
+  </div>
+</BaseLayout>

@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout avec rangement : les bonnes solutions"
+  description="Bureau assis-debout avec rangement : tiroir sous plateau, caisson roulant, étagère, gestion des câbles. Ce qui monte avec le bureau, et ce qui doit rester au sol."
+  crumbs={[
+    { label: 'Meilleur bureau assis-debout', href: '/meilleur-bureau-assis-debout/' },
+    { label: 'Avec rangement' },
+  ]}
+  silo="guides"
+  currentPath="/meilleur-bureau-assis-debout/bureau-assis-debout-avec-rangement/"
+  eyebrow="Guides d’achat"
+  h1="Bureau assis-debout avec rangement : <em>ce qui monte, ce qui reste au sol</em>"
+>
+  <p slot="lead">
+    Sur un bureau réglable, tout ce qui est fixé au plateau monte avec lui et
+    alourdit la charge. Le bon rangement est donc souvent celui qui reste au
+    sol. Ce guide fait partie de notre
+    <a href="/meilleur-bureau-assis-debout/">dossier sur le meilleur bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Un caisson roulant indépendant est la solution la plus simple : rien n’est à soulever.',
+      'Un tiroir sous plateau reste utile pour quelques objets, à condition de ne pas gêner les genoux en position assise.',
+      'Prévoyez une goulotte pour les câbles, avec assez de mou pour la course complète.',
+    ]}
+  />
+
+  <h2>Les options, de la plus légère à la plus lourde</h2>
+  <p>
+    <strong>Le tiroir sous plateau.</strong> Mince, il accueille stylos,
+    câbles et carnets. Vérifiez la hauteur libre sous le tiroir en position
+    assise : vos cuisses ne doivent pas toucher.
+  </p>
+  <p>
+    <strong>Le caisson roulant.</strong> Il reste au sol et se glisse sous le
+    plateau. Mesurez sa hauteur et comparez-la à la hauteur minimale du bureau,
+    moins l’épaisseur du plateau et de la traverse : s’il dépasse, il ne passera
+    pas dessous en position basse.
+  </p>
+  <p>
+    <strong>Les modules fixés sur le plateau.</strong> Étagères, rehausses
+    d’écran ou tablettes : pratiques, mais tout leur poids s’ajoute à la charge
+    que le moteur soulève à chaque changement.
+  </p>
+
+  <h2>Le rangement oublié : les câbles</h2>
+  <p>
+    C’est le vrai sujet sur un bureau qui bouge. Écrans, chargeur, lampe : tous
+    les câbles doivent suivre le plateau sur toute sa course. Une goulotte
+    fixée sous le plateau regroupe les multiprises. Une gaine verticale guide
+    les câbles jusqu’au sol. Laissez toujours assez de mou pour la position la
+    plus haute, sinon c’est une prise qui finit arrachée.
+  </p>
+
+  <h2>Rangement et style</h2>
+  <p>
+    Un plateau dégagé met en valeur la matière : si l’aspect compte, notre guide
+    du
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-bois/"><strong>bureau assis-debout en bois</strong></a>
+    vous aidera à choisir. Pour une approche plus graphique, voyez le
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-design/">bureau assis-debout design</a>,
+    et si le budget est serré, nos conseils pour
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-pas-cher/">bien acheter à petit prix</a>.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Vous travaillez avec des dossiers papier et de nombreux périphériques',
+      'Votre bureau n’a pas de placard à proximité',
+    ]}
+    notFor={[
+      'Votre pièce est si petite qu’un caisson bloquerait le passage',
+      'Votre cadre est déjà proche de sa charge maximale',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout tiroir rangement')} title="Bureaux et accessoires de rangement" />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

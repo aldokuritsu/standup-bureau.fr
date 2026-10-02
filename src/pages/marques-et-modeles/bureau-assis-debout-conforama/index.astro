@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout Conforama : bien lire le rayon"
+  description="Bureau assis-debout chez Conforama : plusieurs centaines de références, dont beaucoup de vendeurs partenaires. Ce qu’il faut vérifier avant de commander."
+  crumbs={[
+    { label: 'Marques et modèles', href: '/marques-et-modeles/' },
+    { label: 'Conforama' },
+  ]}
+  silo="marques"
+  currentPath="/marques-et-modeles/bureau-assis-debout-conforama/"
+  h1="Bureau assis-debout Conforama : <em>bien lire le rayon</em>"
+  meta={['Rayon consulté sur conforama.fr le 2 octobre 2026']}
+>
+  <p slot="lead">
+    Le rayon « bureau assis debout » de Conforama affichait plus de 500
+    références début octobre 2026. À ce niveau, on n’est plus dans une gamme
+    maison mais dans un catalogue où le vendeur change d’une fiche à l’autre.
+    Une fiche de notre
+    <a href="/marques-et-modeles/">guide des enseignes et marques</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Vérifiez sur chaque fiche si le produit est vendu par Conforama ou par un vendeur partenaire.',
+      'Comparez la hauteur maximale annoncée à vos besoins : en entrée de gamme, elle peut plafonner à peine au-dessus des repères INRS.',
+      'Les retours et le SAV dépendent du vendeur réel.',
+    ]}
+  />
+
+  <h2>Un rayon qui ressemble à une marketplace</h2>
+  <p>
+    Avec plusieurs centaines de produits, la page Conforama fonctionne comme
+    une marketplace : le vendeur indiqué sur la fiche n’est pas toujours
+    l’enseigne. Les conditions changent selon le cas : délai de livraison, possibilité de
+    retrait en magasin, interlocuteur en cas de panne. Ce n’est pas un défaut
+    en soi, mais cela demande la même vigilance que sur Amazon.
+  </p>
+
+  <h2>Les fiches à lire de près</h2>
+  <p>
+    Parmi les références mises en avant, on trouve par exemple un 160×80 avec
+    mémoire, anti-collision et une hauteur réglable de 70 à 117 cm. Pour une
+    personne de taille moyenne, c’est cohérent avec les repères de l’INRS
+    (107 à 115 cm pour le travail debout). Pour un grand gabarit, 117 cm peut
+    vite manquer. C’est typique de l’entrée de gamme : regardez toujours la
+    hauteur maximale avant le prix.
+  </p>
+
+  <h2>Pour comparer</h2>
+  <p>
+    Si la proximité d’un magasin compte, mettez l’offre en regard du
+    <a href="/marques-et-modeles/bureau-assis-debout-ikea/">catalogue IKEA, essayable sur place</a>.
+    Pour un choix plus large sur un format précis, voyez
+    <a href="/marques-et-modeles/bureau-assis-debout-amazon/">notre méthode pour trier les fiches Amazon</a>.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Vous voulez un retrait en magasin près de chez vous',
+      'Vous cherchez un petit prix et savez lire une fiche technique',
+    ]}
+    notFor={[
+      'Vous êtes très grand et cherchez une course de hauteur élevée',
+      'Vous ne voulez pas vous soucier de l’identité du vendeur',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout 160x80')} title="Comparer avec l’offre Amazon" />
+
+  <Sources items={[S.conforama, S.inrsEcran]} />
+</BaseLayout>

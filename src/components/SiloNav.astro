@@ -1,0 +1,39 @@
+---
+import type { SiloLink } from '../data/silos';
+import Icon, { type IconName } from './Icon.astro';
+interface Props {
+  label: string;
+  icon: IconName;
+  links: SiloLink[];
+  currentPath: string;
+}
+const { label, icon, links, currentPath } = Astro.props;
+---
+
+<nav class="silo-nav" aria-label={`Dossier ${label}`}>
+  <p class="silo-nav__label"><Icon name={icon} />Dans ce dossier</p>
+  <ul>
+    {
+      links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            aria-current={link.href === currentPath ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  // Mobile : fait défiler la liste horizontale jusqu’à la page courante.
+  document.querySelectorAll<HTMLUListElement>('.silo-nav ul').forEach((list) => {
+    const current = list.querySelector<HTMLElement>('[aria-current="page"]');
+    if (current && list.scrollWidth > list.clientWidth) {
+      list.scrollLeft = current.parentElement!.offsetLeft - 16;
+    }
+  });
+</script>

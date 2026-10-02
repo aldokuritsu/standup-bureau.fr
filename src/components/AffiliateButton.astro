@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  href: string;
+  title?: string;
+  label?: string;
+}
+const {
+  href,
+  title = 'Comparer les modèles disponibles',
+  label = 'Voir sur Amazon',
+} = Astro.props;
+---
+
+<section class="buy" aria-label="Lien d’achat affilié">
+  <div>
+    <p class="buy__title">{title}</p>
+    <p class="buy__notice">
+      Lien affilié : si vous achetez après ce clic, Standup Bureau touche une
+      commission. Le prix reste le même pour vous.
+      <a href="/affiliation/">Comment nous sommes financés</a>
+    </p>
+  </div>
+  <a class="btn btn--buy" href={href} rel="sponsored noopener" target="_blank">
+    <span>{label} <small>(lien affilié)</small></span>
+    <Icon name="arrow" />
+  </a>
+</section>

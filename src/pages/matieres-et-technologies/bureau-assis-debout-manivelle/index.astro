@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout à manivelle : le compromis sans moteur"
+  description="Bureau assis-debout à manivelle : silencieux, sans prise, moins cher que l’électrique. Pour qui c’est le bon choix, et ce qu’il faut vérifier avant d’acheter."
+  crumbs={[
+    { label: 'Matières et technologies', href: '/matieres-et-technologies/' },
+    { label: 'Bureau à manivelle' },
+  ]}
+  silo="matieres"
+  currentPath="/matieres-et-technologies/bureau-assis-debout-manivelle/"
+  h1="Bureau assis-debout à manivelle : <em>le compromis sous-estimé</em>"
+>
+  <p slot="lead">
+    Pas de moteur, pas de prise, un mécanisme à vis qu’on actionne en tournant.
+    La manivelle se place entre les deux autres familles de notre
+    <a href="/matieres-et-technologies/">comparatif des bureaux électriques, manuels et à manivelle</a> :
+    plus pratique qu’un réglage à goupilles, moins cher qu’un moteur.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Idéal si vous alternez une à trois fois par jour et qu’aucune prise n’est à portée.',
+      'Le plateau se règle chargé, sans rien débarrasser.',
+      'Vérifiez la position de la manivelle : elle ne doit pas taper dans vos genoux en position assise.',
+    ]}
+  />
+
+  <h2>Comment ça marche</h2>
+  <p>
+    La manivelle entraîne une tige qui fait tourner une vis dans chaque colonne.
+    Le plateau monte ou descend en continu, à la hauteur exacte que vous
+    choisissez. Aucune électronique, donc pas de code d’erreur ni de boîtier à
+    remplacer. Sur la durée, les retours d’acheteurs signalent surtout un
+    mécanisme qui durcit ou prend du jeu : un peu de graisse sur la vis, quand
+    la notice le prévoit, suffit souvent.
+  </p>
+
+  <h2>Le vrai coût : le temps de réglage</h2>
+  <p>
+    Il faut plusieurs tours pour passer de la position assise à la position
+    debout. Une ou deux fois par jour, c’est un geste comme un autre. Toutes les
+    demi-heures, comme le suggère l’INRS, la plupart des gens abandonnent.
+    Soyez honnête sur votre usage avant d’acheter : si vous visez une
+    alternance fréquente, le
+    <a href="/matieres-et-technologies/bureau-assis-debout-electrique/">modèle électrique avec mémoires</a>
+    vous rendra plus de services.
+  </p>
+
+  <h2>Où la manivelle bat l’électrique</h2>
+  <p>
+    Dans une location où l’on ne veut pas tirer de rallonge. Dans une pièce
+    où le moindre bruit compte. Dans un atelier, ou un bureau près d’une
+    fenêtre loin des prises. Et, plus simplement, quand le budget ne permet pas
+    un moteur de qualité : mieux vaut une bonne manivelle qu’un électrique
+    d’entrée de gamme qui vacille.
+  </p>
+  <p>
+    À l’inverse, si vous réglez la hauteur une seule fois, un
+    <a href="/matieres-et-technologies/bureau-assis-debout-manuel/">bureau à réglage manuel simple</a>
+    coûtera encore moins cher.
+  </p>
+
+  <h2>À vérifier sur la fiche produit</h2>
+  <p>
+    La plage de hauteur, d’abord, avec ou sans plateau. La charge maximale,
+    ensuite : un plateau lourd rend chaque tour plus difficile. Puis le côté de
+    la manivelle, souvent réversible, et la possibilité de la replier sous le
+    plateau quand vous ne vous en servez pas.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Pas de prise accessible près du bureau',
+      'Une à trois alternances par jour',
+      'Un budget sous celui d’un bon électrique',
+    ]}
+    notFor={[
+      'Vous voulez changer de position toutes les 30 minutes',
+      'Plusieurs personnes de tailles différentes se partagent le poste',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout manivelle')} title="Bureaux à manivelle" />
+
+  <Sources items={[S.inrsSed, S.inrsEcran]} />
+</BaseLayout>

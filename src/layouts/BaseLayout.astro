@@ -1,0 +1,204 @@
+---
+import '../styles/global.css';
+import type { Crumb, SiloId } from '../data/silos';
+import { silos } from '../data/silos';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import SiloNav from '../components/SiloNav.astro';
+import Logo from '../components/Logo.astro';
+import Icon from '../components/Icon.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  crumbs?: Crumb[];
+  silo?: SiloId;
+  currentPath?: string;
+  /** Titre H1 (HTML autorisé pour un <em>). Absent sur l’accueil. */
+  h1?: string;
+  /** Petit libellé au-dessus du H1. Par défaut : nom du dossier. */
+  eyebrow?: string;
+  variant?: 'home' | 'hub' | 'article' | 'plain';
+  /** Mention affichée sous l’introduction (ex. date de revue). */
+  meta?: string[];
+}
+
+const {
+  title,
+  description,
+  crumbs = [],
+  silo,
+  currentPath = Astro.url.pathname,
+  h1,
+  eyebrow,
+  variant = 'article',
+  meta = [],
+} = Astro.props;
+
+const siloData = silo ? silos[silo] : undefined;
+const pageTitle = title.includes('Standup Bureau')
+  ? title
+  : `${title} | Standup Bureau`;
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const canonical = `${site}${currentPath}`;
+const allCrumbs: Crumb[] = [{ label: 'Accueil', href: '/' }, ...crumbs];
+
+const breadcrumbLd =
+  crumbs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: allCrumbs.map((c, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: c.label,
+          item: `${site}${c.href ?? currentPath}`,
+        })),
+      }
+    : null;
+
+const hasArt = Astro.slots.has('art');
+const eyebrowText = eyebrow ?? siloData?.label;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Standup Bureau" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#f4efe6" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..600,0..100&family=Instrument+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    {
+      breadcrumbLd && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(breadcrumbLd)}
+        />
+      )
+    }
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="/" aria-label="Standup Bureau, accueil">
+          <Logo />
+          <span>Standup <em>Bureau</em></span>
+        </a>
+        <p class="site-header__tag">
+          Guides indépendants pour choisir un bureau assis-debout
+        </p>
+      </div>
+    </header>
+
+    {
+      variant === 'home' ? (
+        <main id="contenu">
+          <slot />
+        </main>
+      ) : (
+        <main id="contenu">
+          <header class:list={['page-head', { 'page-head--hub': variant === 'hub' }]}>
+            <div class="wrap">
+              {crumbs.length > 0 && <Breadcrumb items={allCrumbs} />}
+              <div class:list={['page-head__grid', { 'page-head__grid--with-art': hasArt }]}>
+                <div>
+                  {eyebrowText && (
+                    <p class="eyebrow">
+                      {siloData && <Icon name={siloData.icon} />}
+                      {eyebrowText}
+                    </p>
+                  )}
+                  {h1 && <h1 set:html={h1} />}
+                  <div class="lead">
+                    <slot name="lead" />
+                  </div>
+                  {meta.length > 0 && (
+                    <p class="page-head__meta">
+                      {meta.map((m) => (
+                        <span>
+                          <Icon name="book" />
+                          {m}
+                        </span>
+                      ))}
+                    </p>
+                  )}
+                </div>
+                {hasArt && (
+                  <div>
+                    <slot name="art" />
+                  </div>
+                )}
+              </div>
+            </div>
+          </header>
+          <div class="edge" aria-hidden="true" />
+
+          <div class="page-body">
+            <div class="wrap page-grid">
+              <article class="prose">
+                <slot />
+              </article>
+              {siloData && (
+                <div class="page-aside">
+                  <div class="page-aside__sticky">
+                    <SiloNav
+                      label={siloData.label}
+                      icon={siloData.icon}
+                      links={siloData.links}
+                      currentPath={currentPath}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </main>
+      )
+    }
+
+    <footer class="site-footer">
+      <div class="wrap site-footer__inner">
+        <div>
+          <a class="brand" href="/" aria-label="Standup Bureau, accueil">
+            <Logo />
+            <span>Standup <em>Bureau</em></span>
+          </a>
+          <p>
+            Des guides pour choisir un bureau assis-debout selon votre dos, votre
+            taille et votre pièce. Site financé par l’affiliation Amazon ; les
+            liens d’achat sont toujours signalés.
+          </p>
+        </div>
+        <nav aria-label="Informations sur le site">
+          <ul>
+            <li><a href="/methodologie/">Méthodologie</a></li>
+            <li><a href="/a-propos/">À propos</a></li>
+            <li><a href="/affiliation/">Affiliation</a></li>
+            <li><a href="/mentions-legales/">Mentions légales</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wrap site-footer__legal">
+        Les informations de ce site ne remplacent pas l’avis d’un médecin ou
+        d’un kinésithérapeute.
+      </div>
+    </footer>
+  </body>
+</html>

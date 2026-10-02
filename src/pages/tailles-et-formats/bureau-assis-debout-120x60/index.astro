@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout 120x60 : le compact, et ses limites"
+  description="Bureau assis-debout 120×60 : pour studio, portable ou poste d’appoint. Pourquoi il est sous les repères INRS pour un usage quotidien sur écran, et comment compenser."
+  crumbs={[
+    { label: 'Tailles et formats', href: '/tailles-et-formats/' },
+    { label: '120×60' },
+  ]}
+  silo="tailles"
+  currentPath="/tailles-et-formats/bureau-assis-debout-120x60/"
+  h1="Bureau assis-debout 120×60 : <em>le compact, et ses limites</em>"
+>
+  <p slot="lead">
+    Le 120×60 tient dans un studio ou une chambre. Il convient à un portable,
+    voire à un écran unique. Pour un poste de travail quotidien, ses 60 cm de
+    profondeur sont loin des 80 cm recommandés par l’INRS. Une page de notre
+    <a href="/tailles-et-formats/">dossier sur les formats de bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Parfait pour un ordinateur portable, correct pour un écran sur bras articulé.',
+      'Trop juste pour deux écrans ou un poste à temps plein.',
+      'Charge maximale souvent plus faible sur les cadres compacts : vérifiez-la.',
+    ]}
+  />
+
+  <h2>Ce qui tient sur 120×60</h2>
+  <p>
+    Un portable et sa souris, sans problème. Un écran de 24 pouces avec un
+    clavier, oui, mais l’écran se retrouve proche des yeux : sur 60 cm de
+    profondeur, difficile de respecter la distance de 50 à 70 cm conseillée par
+    l’INRS une fois le clavier posé à 10 cm du bord. Un bras d’écran fixé à
+    l’arrière aide à gagner quelques centimètres.
+  </p>
+
+  <h2>Les bons usages</h2>
+  <p>
+    Le poste d’appoint d’une chambre d’amis. Un coin bureau dans un studio. Un
+    deuxième plan de travail à côté d’un bureau fixe, juste pour la position
+    debout. Pour ces usages, le format compact est un vrai atout : il se
+    déplace facilement, et son prix reste bas.
+  </p>
+
+  <h2>Si vous travaillez dessus tous les jours</h2>
+  <p>
+    Vous gagnerez beaucoup à passer à un
+    <a href="/tailles-et-formats/bureau-assis-debout-160x80/">bureau assis-debout de 160 sur 80</a>
+    si la pièce le permet. Et dans un coin, un
+    <a href="/tailles-et-formats/bureau-assis-debout-angle/">modèle d’angle</a>
+    exploite un espace souvent perdu.
+  </p>
+
+  <ForWho
+    forWho={['Un portable, ou un seul écran sur bras', 'Un studio, un poste d’appoint']}
+    notFor={['Un poste à deux écrans', 'Un télétravail à temps plein']}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout 120x60')} title="Bureaux compacts 120×60" />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

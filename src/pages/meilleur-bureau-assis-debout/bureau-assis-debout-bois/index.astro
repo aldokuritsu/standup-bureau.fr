@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout bois : massif, plaqué ou mélaminé"
+  description="Bureau assis-debout en bois : différences entre massif, plaqué et mélaminé, poids à prévoir pour le moteur, entretien, finitions. Ce qu’il faut savoir avant d’acheter."
+  crumbs={[
+    { label: 'Meilleur bureau assis-debout', href: '/meilleur-bureau-assis-debout/' },
+    { label: 'Bois' },
+  ]}
+  silo="guides"
+  currentPath="/meilleur-bureau-assis-debout/bureau-assis-debout-bois/"
+  eyebrow="Guides d’achat"
+  h1="Bureau assis-debout en bois : <em>massif, plaqué ou décor</em>"
+>
+  <p slot="lead">
+    « Bois » recouvre trois réalités très différentes, au prix et au poids
+    près. Bien choisir, c’est surtout vérifier que le cadre supporte le plateau.
+    Un guide qui complète notre
+    <a href="/meilleur-bureau-assis-debout/">sélection de critères pour bien choisir</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Le massif est beau et réparable, mais lourd : vérifiez la charge du cadre avant tout.',
+      'Le plaqué offre l’aspect et le toucher du bois pour un prix raisonnable.',
+      'Le mélaminé « décor bois » est le moins cher et le plus simple à entretenir.',
+      'Préférez une finition mate : elle renvoie moins de reflets vers les yeux.',
+    ]}
+  />
+
+  <h2>Trois plateaux, trois logiques</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Massif, plaqué, mélaminé</strong>
+        Tendances générales ; le poids exact figure sur la fiche du plateau.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Bois massif</th>
+          <th scope="col">Plaqué bois</th>
+          <th scope="col">Mélaminé décor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Ce que c’est</th><td>Lames de bois collées</td><td>Fine feuille de bois sur panneau</td><td>Papier imprimé sur panneau</td></tr>
+        <tr><th scope="row">Poids</th><td>Élevé, plateau souvent épais</td><td>Selon le panneau support</td><td>Selon le panneau support</td></tr>
+        <tr><th scope="row">Rayures</th><td class="is-good">Se poncent</td><td>Réparation délicate</td><td>Difficiles à reprendre</td></tr>
+        <tr><th scope="row">Entretien</th><td>Huile ou vernis à refaire</td><td>Chiffon humide</td><td class="is-good">Chiffon humide</td></tr>
+        <tr><th scope="row">Prix</th><td>Le plus élevé</td><td>Intermédiaire</td><td class="is-good">Le plus bas</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Le poids, ce qu’on oublie</h2>
+  <p>
+    Un plateau massif, souvent plus épais, pèse nettement plus qu’un panneau
+    du même format, surtout face aux panneaux alvéolaires, creux à
+    l’intérieur. Ce poids s’ajoute à celui des écrans et des
+    accessoires, et le moteur doit soulever le tout à chaque changement. Avant
+    d’acheter, additionnez et comparez à la charge maximale du cadre, avec de la
+    marge. Un cadre utilisé à sa limite monte plus lentement.
+  </p>
+
+  <h2>Finitions et confort</h2>
+  <p>
+    Regardez les chants, c’est-à-dire les bords du plateau. Un chant arrondi ou
+    légèrement chanfreiné marque moins les avant-bras qu’une arête vive, et vos
+    avant-bras reposent dessus une bonne partie de la journée. Côté surface,
+    une finition mate évite les reflets de la fenêtre ou de la lampe.
+  </p>
+
+  <h2>Et le budget</h2>
+  <p>
+    Le bois massif fait vite grimper la facture. Si c’est le prix qui coince,
+    notre guide du
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-pas-cher/"><strong>bureau assis-debout pas cher</strong></a>
+    montre où économiser sans perdre en usage. Pour garder un plateau dégagé,
+    voyez aussi les
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-avec-rangement/">solutions de rangement compatibles</a>,
+    et pour un ensemble plus affirmé, le
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-design/">guide des bureaux design</a>.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Le bureau est dans une pièce de vie et doit s’y fondre',
+      'Vous voulez un plateau qui vieillit bien',
+      'Vous changez seulement le plateau d’un cadre existant',
+    ]}
+    notFor={[
+      'Votre cadre a une charge maximale faible',
+      'Vous cherchez le prix le plus bas',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout bois massif')} title="Bureaux à plateau bois" />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

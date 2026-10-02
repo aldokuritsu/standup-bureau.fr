@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Mentions légales"
+  description="Mentions légales du site Standup Bureau : éditeur, hébergement, propriété intellectuelle."
+  crumbs={[{ label: 'Mentions légales' }]}
+  variant="plain"
+  eyebrow="Informations légales"
+  h1="Mentions légales"
+>
+  <p slot="lead">
+    Informations relatives à l’éditeur et à l’hébergement du site
+    standup-bureau.com.
+  </p>
+
+  <h2>Éditeur</h2>
+  <p>
+    Raison sociale, adresse du siège et numéro d’immatriculation : à compléter
+    avant la mise en ligne.<br />
+    Directeur de la publication : à compléter.<br />
+    Contact : <a href="/contact/">page contact</a>.
+  </p>
+
+  <h2>Hébergement</h2>
+  <p>
+    Cloudflare Pages, service de Cloudflare, Inc. Coordonnées complètes de
+    l’hébergeur : à compléter avant la mise en ligne.
+  </p>
+
+  <h2>Propriété intellectuelle</h2>
+  <p>
+    Les textes, illustrations et la structure du site appartiennent à Standup
+    Bureau. Les marques citées (IKEA, Amazon, FlexiSpot, Songmics, Conforama,
+    BUT et autres) appartiennent à leurs titulaires respectifs.
+  </p>
+
+  <h2>Affiliation</h2>
+  <p>
+    Le site participe au Programme Partenaires d’Amazon EU. Voir la page
+    <a href="/affiliation/">affiliation</a>.
+  </p>
+</BaseLayout>

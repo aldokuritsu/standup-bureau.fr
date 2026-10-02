@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import SeeAlso from '../../../components/SeeAlso.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout Amazon : comment trier sans se tromper"
+  description="Acheter un bureau assis-debout sur Amazon : repérer le vrai vendeur, lire une fiche produit, filtrer les avis utiles. La méthode en cinq points."
+  crumbs={[
+    { label: 'Marques et modèles', href: '/marques-et-modeles/' },
+    { label: 'Amazon' },
+  ]}
+  silo="marques"
+  currentPath="/marques-et-modeles/bureau-assis-debout-amazon/"
+  h1="Bureau assis-debout sur Amazon : <em>trier avant de cliquer</em>"
+>
+  <p slot="lead">
+    Sur Amazon, une recherche « bureau assis debout » renvoie des centaines de
+    fiches, souvent pour des cadres qui se ressemblent comme deux gouttes d’eau.
+    Le bon achat existe, mais il faut savoir lire. C’est l’objet de cette fiche,
+    rattachée à notre
+    <a href="/marques-et-modeles/">guide des marques et enseignes</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Écartez toute fiche qui n’affiche pas la plage de hauteur et la charge maximale.',
+      'Regardez qui vend et qui expédie : le SAV dépend du vendeur, pas d’Amazon.',
+      'Lisez les avis négatifs récents, pas la note moyenne.',
+    ]}
+  />
+
+  <h2>Cinq vérifications avant de commander</h2>
+  <div class="formula">
+    <ol>
+      <li>
+        <strong>La plage de hauteur, plateau compris.</strong> Comparez-la à vos
+        hauteurs de coude assis et debout. Une fiche qui donne seulement la
+        hauteur du cadre vous fera perdre deux ou trois centimètres.
+      </li>
+      <li>
+        <strong>La charge maximale.</strong> Additionnez plateau, écrans, bras
+        et accessoires. Gardez de la marge.
+      </li>
+      <li>
+        <strong>Le nombre de moteurs.</strong> Pour un plateau de 160 cm et
+        plus, un double moteur est plus rassurant.
+      </li>
+      <li>
+        <strong>Le vendeur.</strong> Sous le bouton d’achat, Amazon indique qui
+        expédie et qui vend. Un vendeur tiers sans service client en France
+        compliquera un éventuel échange de moteur.
+      </li>
+      <li>
+        <strong>Les conditions de retour.</strong> Un bureau emballé est lourd et
+        encombrant. Vérifiez qui paie le transport retour.
+      </li>
+    </ol>
+  </div>
+
+  <h2>Lire les avis utilement</h2>
+  <p>
+    La note globale dit peu de chose : elle est souvent laissée à la réception,
+    avant le montage. Filtrez sur les avis à une et deux étoiles, et cherchez
+    des mots précis : « penche », « vacille », « code erreur », « bruit ».
+    S’ils reviennent souvent sur des avis datant de plusieurs mois, c’est un
+    signal. Les photos d’acheteurs montrant le plateau en position haute, avec
+    un vrai poste dessus, valent plus que celles du vendeur.
+  </p>
+
+  <h2>Amazon face aux magasins</h2>
+  <p>
+    Le choix y est bien plus large qu’en magasin, notamment pour les cadres
+    seuls, les grands formats et les marques spécialisées. En revanche, vous ne
+    pouvez pas essayer. Si vous hésitez sur la hauteur ou la stabilité, faites
+    un tour au rayon
+    <a href="/marques-et-modeles/bureau-assis-debout-ikea/">bureaux réglables d’IKEA</a>
+    pour vous faire une idée, ou comparez avec
+    <a href="/marques-et-modeles/bureau-assis-debout-conforama/">ce que propose Conforama</a>
+    avec retrait en magasin.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Vous savez déjà quelles dimensions et quelle hauteur il vous faut',
+      'Vous cherchez un cadre seul, ou un format peu courant',
+      'Vous voulez être livré à domicile rapidement',
+    ]}
+    notFor={[
+      'Vous avez besoin d’essayer le bureau avant de vous décider',
+      'Vous ne voulez pas gérer un retour encombrant',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout électrique')} title="Parcourir l’offre Amazon" />
+
+  <p>
+    Pour gagner du temps, commencez par notre
+    <a href="/bureaux/">comparatif de modèles</a>
+    (packs et cadres, critères charge / hauteur) ou
+    <a href="/bureaux/comparer/">comparez-en deux</a>.
+  </p>
+
+  <Sources items={[S.inrsEcran]} />
+
+  <SeeAlso>
+    Votre bureau arrivé, prenez dix minutes pour
+    <a href="/ergonomie/bureau-ergonomique-assis-debout/">régler votre poste selon les repères de l’INRS</a> :
+    hauteur, écran, clavier.
+  </SeeAlso>
+</BaseLayout>

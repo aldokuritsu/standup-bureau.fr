@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout BUT : ce qu’il faut vérifier en magasin"
+  description="Acheter un bureau assis-debout chez BUT : l’intérêt d’une enseigne généraliste, les points à contrôler en rayon, et comment comparer avec IKEA et Amazon."
+  crumbs={[
+    { label: 'Marques et modèles', href: '/marques-et-modeles/' },
+    { label: 'BUT' },
+  ]}
+  silo="marques"
+  currentPath="/marques-et-modeles/bureau-assis-debout-but/"
+  h1="Bureau assis-debout BUT : <em>ce qu’il faut vérifier en rayon</em>"
+>
+  <p slot="lead">
+    BUT est une enseigne d’équipement de la maison, pas un spécialiste du
+    bureau. Son intérêt : regrouper un achat de mobilier et passer en magasin.
+    Son offre en bureaux réglables évolue selon les périodes, donc la fiche
+    produit fait foi. Une page de notre
+    <a href="/marques-et-modeles/">comparatif des enseignes</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Notez la plage de hauteur et la charge maximale avant de vous décider sur le prix.',
+      'En ligne, vérifiez le nom du vendeur indiqué sur la fiche produit.',
+      'Renseignez-vous sur la livraison à l’étage et le retour d’un meuble monté.',
+    ]}
+  />
+
+  <h2>L’intérêt d’une enseigne généraliste</h2>
+  <p>
+    Si vous aménagez un coin bureau complet, avec rangement et chaise, acheter
+    au même endroit simplifie la livraison. Le magasin permet aussi, quand un
+    modèle est exposé, de le monter et de le descendre, d’écouter le moteur et
+    de pousser le plateau en position haute pour juger sa stabilité.
+  </p>
+
+  <h2>Ce que nous n’avons pas pu vérifier</h2>
+  <p>
+    Le site de BUT ne nous a pas permis de consulter la liste à jour des
+    bureaux assis-debout au moment de rédiger cette page. Plutôt que d’inventer
+    une gamme, nous vous donnons la grille à appliquer en rayon. Si vous
+    constatez une offre précise, notre
+    <a href="/contact/">adresse de contact</a> reste ouverte aux corrections.
+  </p>
+
+  <h2>Comparer avant de payer</h2>
+  <p>
+    Mettez le modèle repéré en face du
+    <a href="/marques-et-modeles/bureau-assis-debout-ikea/">même format chez IKEA</a>,
+    dont les prix sont publics, et de l’offre
+    <a href="/marques-et-modeles/bureau-assis-debout-amazon/">disponible sur Amazon</a>
+    pour le même couple largeur et profondeur.
+  </p>
+
+  <ForWho
+    forWho={['Vous équipez toute une pièce au même endroit', 'Vous voulez voir le bureau avant de l’acheter']}
+    notFor={['Vous cherchez un cadre seul ou un format peu courant', 'Vous voulez comparer des dizaines de modèles']}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout')} title="Comparer avec l’offre en ligne" />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

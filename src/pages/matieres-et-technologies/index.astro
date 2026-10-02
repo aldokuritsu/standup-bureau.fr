@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Verdict from '../../components/Verdict.astro';
+import GuideList from '../../components/GuideList.astro';
+import ForWho from '../../components/ForWho.astro';
+import Sources from '../../components/Sources.astro';
+import { S } from '../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout électrique ou manuel : lequel choisir"
+  description="Électrique, manuel ou à manivelle : ce que change le mode de réglage d’un bureau assis-debout sur l’usage, le bruit, le prix et les pannes. Tableau comparatif."
+  crumbs={[{ label: 'Matières et technologies' }]}
+  silo="matieres"
+  currentPath="/matieres-et-technologies/"
+  variant="hub"
+  h1="Bureau assis-debout électrique ou manuel : <em>le réglage décide de tout</em>"
+>
+  <p slot="lead">
+    Avant la marque et avant la taille, il y a une question simple : combien
+    d’efforts vous coûtera chaque changement de position ? C’est la première
+    étape de notre
+    <a href="/">guide pour choisir un bureau assis-debout</a>, et celle qui
+    pèse le plus sur l’usage réel.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Vous changerez de position plusieurs fois par jour : prenez un <strong>électrique</strong>, idéalement avec mémoires de hauteur.',
+      'Vous alternez une ou deux fois par jour, sans prise à proximité : la <strong>manivelle</strong> fait le travail pour moins cher.',
+      'Vous réglez la hauteur une fois pour toutes, ou presque : un <strong>manuel</strong> simple suffit.',
+    ]}
+  />
+
+  <h2>Pourquoi le réglage compte plus que le reste</h2>
+  <p>
+    L’INRS recommande de rompre la position assise idéalement toutes les
+    30 minutes. Sur une journée de travail, cela représente une dizaine de
+    passages. Avec un bouton, c’est anodin. Avec une manivelle à tourner, la
+    plupart des gens finissent par laisser le plateau en bas.
+  </p>
+  <p>
+    C’est aussi pour cette raison que l’INRS, dans ses conseils d’achat, cite
+    explicitement le matériel « idéalement électrique avec mémorisation de
+    hauteurs ». Ce n’est pas une question de confort de luxe : c’est ce qui
+    rend l’alternance tenable.
+  </p>
+
+  <h2>Les trois guides de ce dossier</h2>
+  <GuideList
+    items={[
+      {
+        href: '/matieres-et-technologies/bureau-assis-debout-electrique/',
+        title: 'Le bureau assis-debout électrique',
+        text: 'Un ou deux moteurs, vitesse, bruit, mémoires, garantie : les points qui séparent un bon modèle d’un mauvais.',
+      },
+      {
+        href: '/matieres-et-technologies/bureau-assis-debout-manuel/',
+        title: 'Le bureau réglable manuellement',
+        text: 'Goupilles, molettes ou vérin à gaz : pas cher, silencieux, mais pensé pour un réglage rare.',
+      },
+      {
+        href: '/matieres-et-technologies/bureau-assis-debout-manivelle/',
+        title: 'Le bureau à manivelle',
+        text: 'Ni prise ni moteur, un peu d’huile de coude à chaque changement. Le compromis le plus sous-estimé.',
+      },
+    ]}
+  />
+
+  <h2>Le comparatif en un tableau</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Électrique, manivelle, manuel</strong>
+        Tendances observées sur les fiches fabricants et les avis d’acheteurs. Chaque modèle reste à vérifier.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Critère</th>
+          <th scope="col">Électrique</th>
+          <th scope="col">Manivelle</th>
+          <th scope="col">Manuel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Effort par changement</th>
+          <td class="is-good">Un bouton</td>
+          <td>Plusieurs tours de manivelle</td>
+          <td>Plateau à débarrasser, réglage à deux mains</td>
+        </tr>
+        <tr>
+          <th scope="row">Fréquence réaliste</th>
+          <td class="is-good">Plusieurs fois par jour</td>
+          <td>Une à trois fois par jour</td>
+          <td>Rarement</td>
+        </tr>
+        <tr>
+          <th scope="row">Bruit</th>
+          <td>Ronronnement du moteur pendant la course</td>
+          <td class="is-good">Quasi silencieux</td>
+          <td class="is-good">Silencieux</td>
+        </tr>
+        <tr>
+          <th scope="row">Prise électrique</th>
+          <td>Indispensable</td>
+          <td class="is-good">Inutile</td>
+          <td class="is-good">Inutile</td>
+        </tr>
+        <tr>
+          <th scope="row">Ce qui peut tomber en panne</th>
+          <td>Moteur, boîtier de commande, alimentation</td>
+          <td>Vis sans fin, renvoi d’angle</td>
+          <td>Peu de chose</td>
+        </tr>
+        <tr>
+          <th scope="row">Budget</th>
+          <td>Le plus élevé</td>
+          <td>Intermédiaire</td>
+          <td class="is-good">Le plus bas</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Ce que le mécanisme ne change pas</h2>
+  <p>
+    Quel que soit le réglage, les bénéfices attendus sont les mêmes, et ils sont
+    modestes. La revue Cochrane de 2018 observe environ 100 minutes de position
+    assise en moins par journée de travail sur les trois premiers mois, puis
+    57 minutes entre trois et douze mois. La qualité des preuves est jugée
+    faible, et aucune étude ne va au-delà d’un an.
+  </p>
+  <p>
+    Le mécanisme ne décide donc pas des effets sur votre santé. Il décide de la
+    probabilité que vous vous serviez du bureau comme prévu.
+  </p>
+
+  <ForWho
+    yesTitle="Ce dossier vous aidera si"
+    noTitle="Allez plutôt ailleurs si"
+    forWho={[
+      'Vous hésitez entre payer un moteur ou tourner une manivelle',
+      'Vous voulez savoir ce qui casse, et au bout de combien de temps',
+      'Vous partagez le poste et avez besoin de hauteurs mémorisées',
+    ]}
+    notFor={[
+      'Votre choix de mécanisme est fait et vous cherchez une taille : passez à l’étape suivante depuis l’accueil',
+      'Vous attendez du bureau qu’il règle seul un problème de dos',
+    ]}
+  />
+
+  <Sources items={[S.inrsSed, S.inrsEcran, S.cochrane]} />
+</BaseLayout>

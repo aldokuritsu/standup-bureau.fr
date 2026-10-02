@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import SeeAlso from '../../../components/SeeAlso.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout manuel : pour qui, et à quelles conditions"
+  description="Bureau assis-debout à réglage manuel : goupilles, molettes ou vérin à gaz. Moins cher et silencieux, mais pensé pour un réglage rare. Comparaison avec l’électrique."
+  crumbs={[
+    { label: 'Matières et technologies', href: '/matieres-et-technologies/' },
+    { label: 'Bureau manuel' },
+  ]}
+  silo="matieres"
+  currentPath="/matieres-et-technologies/bureau-assis-debout-manuel/"
+  h1="Bureau assis-debout manuel : <em>bon marché, à condition de bien l’utiliser</em>"
+>
+  <p slot="lead">
+    Un bureau manuel se règle sans moteur, à la main. C’est la solution la moins
+    chère et la plus simple, mais chaque changement de hauteur demande un
+    effort. Il a sa place dans notre
+    <a href="/matieres-et-technologies/">tour d’horizon des modes de réglage</a>,
+    surtout si vous alternez rarement.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Bon choix si vous réglez la hauteur une fois, ou si vous alternez une à deux fois par jour.',
+      'Mauvais choix si vous voulez suivre le rythme de l’INRS : rompre la position assise toutes les 30 minutes.',
+      'Exigez la plage de hauteur et la charge maximale sur la fiche, comme pour un modèle électrique.',
+    ]}
+  />
+
+  <h2>Trois mécanismes derrière le mot « manuel »</h2>
+  <p>
+    <strong>Les goupilles ou molettes de serrage.</strong> On débarrasse le
+    plateau, on desserre, on monte, on resserre. C’est un réglage
+    d’installation, pas un réglage du quotidien.
+  </p>
+  <p>
+    <strong>Le vérin à gaz.</strong> Une manette libère le plateau, qui monte
+    seul ou descend sous une légère pression. C’est rapide, mais le vérin est
+    calibré pour une plage de poids : trop chargé, le plateau ne monte plus ;
+    trop léger, il remonte brusquement.
+  </p>
+  <p>
+    <strong>La manivelle.</strong> Elle est techniquement manuelle, mais assez
+    différente pour mériter
+    <a href="/matieres-et-technologies/bureau-assis-debout-manivelle/">sa propre analyse du bureau à manivelle</a>.
+  </p>
+
+  <h2>Face à l’électrique</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Manuel ou électrique</strong>
+        Tendances générales. Les écarts réels dépendent du modèle.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Critère</th>
+          <th scope="col">Manuel</th>
+          <th scope="col">Électrique</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Changement de hauteur</th>
+          <td>Effort, parfois plateau à vider</td>
+          <td class="is-good">Un bouton, plateau chargé</td>
+        </tr>
+        <tr>
+          <th scope="row">Hauteurs mémorisées</th>
+          <td>Non</td>
+          <td class="is-good">Souvent</td>
+        </tr>
+        <tr>
+          <th scope="row">Prix</th>
+          <td class="is-good">Le plus bas</td>
+          <td>Plus élevé</td>
+        </tr>
+        <tr>
+          <th scope="row">Bruit, prise, pannes</th>
+          <td class="is-good">Aucun, aucune, rares</td>
+          <td>Moteur audible, prise requise, électronique</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Si vous visez une vraie alternance au fil de la journée, le
+    <a href="/matieres-et-technologies/bureau-assis-debout-electrique/">bureau assis-debout électrique</a>
+    reste plus adapté. L’INRS le recommande d’ailleurs explicitement,
+    « idéalement électrique avec mémorisation de hauteurs ».
+  </p>
+
+  <h2>Les cas où le manuel est le bon choix</h2>
+  <p>
+    Un poste d’appoint dans une chambre d’amis. Un plateau à hauteur fixe, mais
+    réglé exactement pour vous, ce qu’aucune table classique ne permet. Un
+    premier essai, pour savoir si vous travaillez bien debout avant d’investir
+    davantage. Dans ces trois situations, payer un moteur n’apporte pas grand
+    chose.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Vous voulez un bureau à votre hauteur exacte, réglé une fois',
+      'Le budget est serré et vous alternez peu',
+      'C’est un poste secondaire',
+    ]}
+    notFor={[
+      'Vous voulez changer de position toutes les demi-heures',
+      'Le poste est partagé entre personnes de tailles différentes',
+      'Vous avez un plateau très chargé à soulever',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout manuel')} title="Bureaux réglables manuellement" />
+
+  <Sources items={[S.inrsSed, S.inrsEcran]} />
+
+  <SeeAlso>
+    Une fois la hauteur trouvée, reste à régler l’écran, le clavier et les
+    pauses : voyez nos repères pour un
+    <a href="/ergonomie/bureau-ergonomique-assis-debout/">poste assis-debout vraiment ergonomique</a>.
+  </SeeAlso>
+</BaseLayout>

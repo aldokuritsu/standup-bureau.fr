@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Verdict from '../../components/Verdict.astro';
+import GuideList from '../../components/GuideList.astro';
+import ForWho from '../../components/ForWho.astro';
+import Sources from '../../components/Sources.astro';
+import { S } from '../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout : quelle marque, quelle enseigne choisir"
+  description="IKEA, Amazon, FlexiSpot, Songmics, Conforama, BUT : ce qui distingue vraiment les marques et enseignes de bureaux assis-debout. Choix, retours, SAV, garantie."
+  crumbs={[{ label: 'Marques et modèles' }]}
+  silo="marques"
+  currentPath="/marques-et-modeles/"
+  variant="hub"
+  h1="Bureau assis-debout : <em>quelle marque, quelle enseigne</em>"
+>
+  <p slot="lead">
+    Magasin, marketplace ou marque spécialisée : le bon endroit dépend moins du
+    prix affiché que de ce qui se passe après l’achat. Garantie, retours, pièces
+    détachées. C’est la troisième étape de notre
+    <a href="/">méthode pour bien choisir un bureau assis-debout</a>, une fois
+    le réglage et la taille fixés.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Vous voulez voir et toucher avant d’acheter : <strong>IKEA</strong> ou <strong>BUT</strong>.',
+      'Vous voulez le plus grand choix et une livraison rapide : <strong>Amazon</strong>, en lisant bien qui vend.',
+      'Vous voulez une marque qui ne fait que des bureaux réglables, avec une garantie longue : <strong>FlexiSpot</strong>.',
+      'Le budget prime : <strong>Songmics</strong> ou l’entrée de gamme de <strong>Conforama</strong>, en vérifiant la charge et la hauteur.',
+    ]}
+  />
+
+  <h2>Les fiches de ce dossier</h2>
+  <GuideList
+    items={[
+      {
+        href: '/marques-et-modeles/bureau-assis-debout-ikea/',
+        title: 'Bureau assis-debout IKEA',
+        text: 'Une douzaine de bureaux réglables au catalogue, de 139 à 749 € début octobre 2026. Pratique pour essayer, moins pour les promesses.',
+      },
+      {
+        href: '/marques-et-modeles/bureau-assis-debout-amazon/',
+        title: 'Acheter son bureau sur Amazon',
+        text: 'Le choix le plus large, et le plus inégal. Comment trier les fiches et repérer le vrai vendeur.',
+      },
+      {
+        href: '/marques-et-modeles/bureau-assis-debout-flexispot/',
+        title: 'FlexiSpot, le spécialiste',
+        text: 'Une marque centrée sur le réglable : gammes E7 et E9, retours sous 30 jours, garantie jusqu’à 20 ans selon les produits.',
+      },
+      {
+        href: '/marques-et-modeles/songmics-bureau-assis-debout/',
+        title: 'Songmics et ses bureaux à petit prix',
+        text: 'Une marque d’ameublement grand public, présente sur Amazon et sur son propre site. Ce qu’on gagne, ce qu’on accepte.',
+      },
+      {
+        href: '/marques-et-modeles/bureau-assis-debout-conforama/',
+        title: 'Le rayon assis-debout de Conforama',
+        text: 'Plus de 500 références au rayon. Avant de commander, regardez qui vend.',
+      },
+      {
+        href: '/marques-et-modeles/bureau-assis-debout-but/',
+        title: 'Les bureaux réglables chez BUT',
+        text: 'Une enseigne généraliste, utile pour un achat groupé et un retrait en magasin.',
+      },
+    ]}
+  />
+
+  <h2>Ce qui sépare vraiment les enseignes</h2>
+  <p>
+    Les cadres électriques se ressemblent beaucoup d’une marque à l’autre. Les
+    différences se jouent ailleurs, et elles comptent sur un meuble lourd,
+    encombrant et motorisé.
+  </p>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Les questions à poser avant de commander</strong>
+        La même grille s’applique sur chacune de nos fiches.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Question</th>
+          <th scope="col">Pourquoi c’est important</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Qui vend vraiment ?</th>
+          <td>
+            Sur Amazon comme sur Conforama, beaucoup de bureaux sont expédiés par
+            des vendeurs tiers. Le SAV dépend d’eux, pas de la plateforme.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Quelle garantie sur le moteur ?</th>
+          <td>
+            Sur un bureau électrique, c’est là que se concentre le risque de
+            panne. La garantie du cadre et celle du moteur sont parfois
+            différentes.
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Comment se passe un retour ?</th>
+          <td>
+            Un bureau emballé pèse lourd. Qui paie le transport, faut-il le
+            carton d’origine, peut-on le rapporter en magasin ?
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Peut-on avoir une pièce détachée ?</th>
+          <td>
+            Un boîtier de commande ou un moteur remplacé coûte bien moins cher
+            qu’un bureau neuf, encore faut-il qu’il soit disponible.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Méfiez-vous des promesses santé</h2>
+  <p>
+    Plusieurs enseignes vantent des calories brûlées, une meilleure posture ou
+    une circulation améliorée. La revue Cochrane, qui a rassemblé les études
+    disponibles, montre surtout une baisse du temps passé assis, avec des
+    preuves de faible qualité et aucun suivi au-delà d’un an. Choisissez votre
+    bureau pour ce qu’il permet, alterner les positions, pas pour ce qu’on lui
+    prête.
+  </p>
+
+  <ForWho
+    yesTitle="Ce dossier vous aidera si"
+    noTitle="Allez plutôt ailleurs si"
+    forWho={[
+      'Vous hésitez entre un magasin et un achat en ligne',
+      'Vous voulez savoir à quoi vous attendre en cas de panne',
+      'Vous comparez le prix d’un même format chez plusieurs enseignes',
+    ]}
+    notFor={[
+      'Vous n’avez pas encore choisi entre électrique et manuel',
+      'Vous cherchez un classement unique valable pour tout le monde',
+    ]}
+  />
+
+  <Sources items={[S.ikea, S.flexispot, S.conforama, S.cochrane]} />
+</BaseLayout>

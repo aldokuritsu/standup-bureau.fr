@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import Verdict from '../../../../components/Verdict.astro';
+import ForWho from '../../../../components/ForWho.astro';
+import AffiliateButton from '../../../../components/AffiliateButton.astro';
+import Sources from '../../../../components/Sources.astro';
+import { amazonSearch } from '../../../../data/silos';
+import { S } from '../../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout électrique 160x80 : le bon format pour deux écrans"
+  description="Pourquoi le 160×80 est le format de référence pour un bureau assis-debout électrique : place pour deux écrans, repères INRS, encombrement, charge à prévoir."
+  crumbs={[
+    { label: 'Matières et technologies', href: '/matieres-et-technologies/' },
+    { label: 'Bureau électrique', href: '/matieres-et-technologies/bureau-assis-debout-electrique/' },
+    { label: 'Électrique 160×80' },
+  ]}
+  silo="matieres"
+  currentPath="/matieres-et-technologies/bureau-assis-debout-electrique/bureau-assis-debout-electrique-160x80/"
+  h1="Bureau assis-debout électrique 160×80 : <em>le format qui coche les cases</em>"
+>
+  <p slot="lead">
+    160 cm de large, 80 cm de profondeur : c’est exactement le minimum que
+    l’INRS juge acceptable pour un poste sur écran. Si vous avez déjà opté pour
+    un <a href="/matieres-et-technologies/bureau-assis-debout-electrique/">bureau assis-debout à moteur</a>,
+    c’est le format par défaut à envisager, sauf pièce vraiment étroite.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Deux écrans de 24 ou 27 pouces tiennent côte à côte, avec de la place pour un document ou une lampe.',
+      'Les 80 cm de profondeur permettent de reculer l’écran à 50 ou 70 cm des yeux, la distance conseillée par l’INRS.',
+      'Prévoyez environ 1,60 m de mur libre, plus le passage de la chaise derrière vous.',
+      'Avec deux écrans sur bras, privilégiez un cadre à deux moteurs.',
+    ]}
+  />
+
+  <h2>Pourquoi 160 sur 80, et pas moins</h2>
+  <p>
+    L’INRS recommande 80 cm de profondeur pour un poste sur écran, et une
+    largeur de 180 cm, tolérée à 160. Le 160×80 est donc le plus petit plateau
+    qui respecte les deux repères. En dessous, on gagne de la place au sol, mais
+    l’écran se retrouve trop près, ou le clavier trop au bord.
+  </p>
+  <p>
+    Un exemple concret. Deux dalles de 27 pouces au format 16:9 mesurent
+    ensemble environ 120 cm de large. Sur 160 cm, il reste une vingtaine de
+    centimètres de chaque côté. Sur 140 cm, il n’en reste presque plus.
+  </p>
+
+  <h2>Ce que la profondeur change au quotidien</h2>
+  <p>
+    Le clavier se pose à 10 ou 15 cm du bord, comme le conseille l’INRS, pour
+    que les avant-bras reposent sur le plateau. Derrière, il faut encore loger
+    le pied de l’écran et garder la bonne distance de lecture. Sur 60 ou 70 cm,
+    ces trois contraintes se marchent dessus. Sur 80, elles tiennent.
+  </p>
+  <p>
+    Si vous travaillez avec trois écrans ou plus, l’INRS évoque une profondeur
+    pouvant aller jusqu’à 110 cm. Un plateau droit n’y arrive pas : regardez
+    alors du côté des bureaux d’angle.
+  </p>
+
+  <h2>Le poids à prévoir</h2>
+  <p>
+    Un plateau de 160×80 pèse nettement plus qu’un 120×60, surtout en bois
+    massif ou en panneau épais. Ajoutez deux écrans, éventuellement des bras
+    articulés : vous chargez vite le cadre. Comparez la charge maximale annoncée
+    à votre total, et gardez de la marge.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Vous travaillez sur deux écrans, ou un écran large et un portable',
+      'Vous avez au moins 1,60 m de mur libre, idéalement un peu plus',
+      'Vous voulez un poste conforme aux repères INRS sans surdimensionner',
+    ]}
+    notFor={[
+      'Vous êtes dans un studio ou une chambre étroite',
+      'Vous travaillez sur trois écrans : la profondeur d’un angle sera plus adaptée',
+      'Vous n’utilisez qu’un ordinateur portable',
+    ]}
+  />
+
+  <AffiliateButton
+    href={amazonSearch('bureau assis debout électrique 160x80')}
+    title="Bureaux électriques 160×80"
+  />
+
+  <Sources items={[S.inrsEcran, S.inrsSed]} />
+</BaseLayout>

@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import SeeAlso from '../../../components/SeeAlso.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau ergonomique assis debout : le réglage pas à pas"
+  description="Régler un bureau ergonomique assis-debout : hauteur du plateau, distance et hauteur de l’écran, clavier, rythme d’alternance. Les repères chiffrés de l’INRS, appliqués pas à pas."
+  crumbs={[
+    { label: 'Ergonomie', href: '/ergonomie/' },
+    { label: 'Bureau ergonomique' },
+  ]}
+  silo="ergonomie"
+  currentPath="/ergonomie/bureau-ergonomique-assis-debout/"
+  h1="Bureau ergonomique assis-debout : <em>le réglage, pas à pas</em>"
+>
+  <p slot="lead">
+    Un bureau n’est pas ergonomique en lui-même : il le devient une fois réglé
+    pour vous. Voici la méthode, avec les repères chiffrés de l’INRS pour le
+    travail sur écran. Elle complète notre
+    <a href="/ergonomie/">synthèse sur l’ergonomie et la recherche</a>.
+  </p>
+
+  <Verdict
+    title="Les repères de l’INRS"
+    criteria={[
+      'Coudes ouverts <strong>entre 90 et 135°</strong>, avant-bras posés sur le plateau.',
+      'Écran à <strong>50 à 70 cm</strong> des yeux, haut de l’écran sous la ligne des yeux.',
+      'Clavier à <strong>10 à 15 cm</strong> du bord du plateau.',
+      'Changer de posture <strong>idéalement toutes les 30 minutes</strong>.',
+    ]}
+    note="Repères tirés des pages de prévention de l’INRS sur le travail sur écran et les postures sédentaires."
+  />
+
+  <h2>Le réglage en cinq étapes</h2>
+  <div class="formula">
+    <ol>
+      <li>
+        <strong>Réglez d’abord la chaise.</strong> Pieds à plat au sol, cuisses à
+        peu près horizontales, dos appuyé.
+      </li>
+      <li>
+        <strong>Amenez le plateau à vos coudes.</strong> Épaules relâchées,
+        avant-bras posés, coudes ouverts entre 90 et 135°. Mémorisez cette
+        hauteur.
+      </li>
+      <li>
+        <strong>Placez le clavier</strong> à 10 ou 15 cm du bord, pour que les
+        avant-bras reposent sur le plateau.
+      </li>
+      <li>
+        <strong>Réglez l’écran</strong> à une longueur de bras, entre 50 et
+        70 cm, le haut de la dalle sous la ligne des yeux.
+      </li>
+      <li>
+        <strong>Passez debout</strong>, montez le plateau jusqu’à retrouver le
+        même angle de coude, et mémorisez cette seconde hauteur.
+      </li>
+    </ol>
+  </div>
+  <p>
+    Si l’écran est posé sur le plateau, il monte avec lui : le réglage fait en
+    position assise reste à peu près bon debout, puisque l’écart entre vos yeux
+    et vos coudes ne change pas. S’il est fixé à un bras sur le mur ou sur un
+    autre meuble, il faudra le régler une seconde fois.
+  </p>
+
+  <h2>Les hauteurs de plateau, en chiffres</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Repères de l’INRS pour un poste sur écran</strong>
+        Pour une personne de taille moyenne. Vos coudes font foi.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Repère</th>
+          <th scope="col">Valeur</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Hauteur du plan, assis</th><td>68 à 76 cm</td></tr>
+        <tr><th scope="row">Hauteur du plan, debout</th><td>107 à 115 cm</td></tr>
+        <tr><th scope="row">Profondeur du plan</th><td>80 cm, jusqu’à 110 cm avec plusieurs écrans</td></tr>
+        <tr><th scope="row">Largeur du plan</th><td>180 cm recommandés, 160 cm tolérés</td></tr>
+        <tr><th scope="row">Distance de l’écran</th><td>50 à 70 cm</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Si vous êtes grand, vos hauteurs sortiront probablement de ces
+    fourchettes. C’est normal : elles décrivent une moyenne. Mesurez-vous, et
+    vérifiez que la plage du bureau vous couvre.
+  </p>
+
+  <h2>Le rythme, la vraie clé</h2>
+  <p>
+    L’INRS recommande de rompre la position assise idéalement toutes les
+    30 minutes, et de limiter le temps assis cumulé à moins de 5 heures par
+    jour. Il conseille aussi des pauses actives. Rester debout immobile n’est
+    pas l’objectif : c’est le changement qui compte. Un rappel sur votre
+    téléphone ou votre agenda aide à installer l’habitude, surtout les
+    premières semaines.
+  </p>
+  <p>
+    Pour le reste, gardez la mesure : la revue Cochrane montre une baisse du
+    temps assis, mais pas de bénéfice démontré sur le poids. Et si une douleur
+    au dos ou à la nuque persiste malgré un poste bien réglé, consultez.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Vous venez de recevoir votre bureau et voulez le régler correctement',
+      'Vous ressentez de l’inconfort après de longues journées sur écran',
+    ]}
+    notFor={[
+      'Vous cherchez un traitement pour une douleur : voyez un professionnel de santé',
+      'Vous attendez une perte de poids du bureau seul',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau ergonomique assis debout électrique')} title="Bureaux électriques à mémoires" />
+
+  <Sources items={[S.inrsEcran, S.inrsSed, S.inrsEd6538, S.cochrane]} />
+
+  <SeeAlso icon="tag">
+    Pour passer de la théorie à un modèle précis, voyez ce que valent les
+    <a href="/marques-et-modeles/bureau-assis-debout-flexispot/">bureaux réglables du spécialiste FlexiSpot</a>
+    et les
+    <a href="/marques-et-modeles/bureau-assis-debout-ikea/">modèles assis-debout du catalogue IKEA</a>.
+  </SeeAlso>
+</BaseLayout>

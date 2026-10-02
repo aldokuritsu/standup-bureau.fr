@@ -1,0 +1,21 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  items: { href: string; title: string; text: string }[];
+}
+const { items } = Astro.props;
+---
+
+<ul class="guides">
+  {
+    items.map((g) => (
+      <li>
+        <h3>
+          <a href={g.href}>{g.title}</a>
+        </h3>
+        <p>{g.text}</p>
+        <Icon name="arrow" class="guides__arrow" />
+      </li>
+    ))
+  }
+</ul>

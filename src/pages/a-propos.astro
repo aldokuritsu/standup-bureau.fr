@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="À propos de Standup Bureau"
+  description="Standup Bureau publie des guides indépendants pour choisir un bureau assis-debout selon son dos, sa taille et sa pièce. Pour qui nous écrivons, et comment."
+  crumbs={[{ label: 'À propos' }]}
+  variant="plain"
+  eyebrow="Le site"
+  h1="Des guides pour <em>choisir sans se tromper</em>"
+>
+  <p slot="lead">
+    Standup Bureau aide à choisir un bureau assis-debout. Pas le plus cher, pas
+    le plus vendu : celui qui correspond à votre corps, à votre pièce et à votre
+    façon de travailler.
+  </p>
+
+  <h2>Pour qui nous écrivons</h2>
+  <p>
+    Pour celles et ceux qui passent leurs journées assis devant un écran, chez
+    eux ou au bureau, et qui envisagent d’alterner. Souvent après quelques
+    années de télétravail, parfois parce que le dos se rappelle à eux. Et en
+    particulier pour les grands gabarits, que les fiches produits oublient
+    régulièrement.
+  </p>
+
+  <h2>Ce qui nous distingue</h2>
+  <p>
+    Des critères mesurables plutôt que des superlatifs. Des sources citées pour
+    chaque affirmation qui touche à la santé. Et une règle simple : dire aussi
+    pour qui un produit n’est pas fait.
+  </p>
+
+  <h2>Indépendance</h2>
+  <p>
+    Aucun fabricant ni aucune enseigne ne relit nos textes avant publication.
+    Le site est financé par l’affiliation Amazon, ce que nous signalons à
+    chaque lien concerné et détaillons sur la page
+    <a href="/affiliation/">affiliation</a>. Notre façon de travailler est
+    décrite dans la <a href="/methodologie/">méthodologie</a>.
+  </p>
+</BaseLayout>

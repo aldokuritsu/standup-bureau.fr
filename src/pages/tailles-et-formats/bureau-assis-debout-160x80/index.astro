@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout 160x80 : le format de référence"
+  description="Bureau assis-debout 160×80 : pourquoi c’est le format de référence pour deux écrans, la place qu’il demande dans la pièce, et quand passer au 180×80 ou à l’angle."
+  crumbs={[
+    { label: 'Tailles et formats', href: '/tailles-et-formats/' },
+    { label: '160×80' },
+  ]}
+  silo="tailles"
+  currentPath="/tailles-et-formats/bureau-assis-debout-160x80/"
+  h1="Bureau assis-debout 160×80 : <em>le format de référence</em>"
+>
+  <p slot="lead">
+    160 cm de large, 80 de profondeur : c’est le plus petit plateau qui respecte
+    les deux repères de l’INRS pour un poste sur écran. Il accueille deux écrans
+    sans les serrer et tient dans la plupart des pièces. Une page de notre
+    <a href="/tailles-et-formats/">guide des tailles de bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Deux écrans de 24 ou 27 pouces, plus un portable ou des documents.',
+      'Prévoyez 1,60 m de mur, et de quoi reculer la chaise.',
+      'Le poids du plateau compte : un cadre à deux moteurs est plus à l’aise.',
+    ]}
+  />
+
+  <h2>Pourquoi ce format revient partout</h2>
+  <p>
+    Les repères de l’INRS sont clairs : 80 cm de profondeur recommandés, 160 cm
+    de large tolérés, 180 recommandés. Le 160×80 coche les deux minimums sans
+    déborder. En profondeur, il laisse placer le clavier à 10 ou 15 cm du bord
+    et l’écran entre 50 et 70 cm des yeux. En largeur, deux écrans de
+    27 pouces, soit environ 120 cm de dalle, laissent une vingtaine de
+    centimètres de chaque côté.
+  </p>
+
+  <h2>Installer un 160×80 dans la pièce</h2>
+  <p>
+    Comptez le plateau, plus un dégagement derrière vous pour reculer la chaise
+    et vous lever. Le long d’un mur, c’est rarement un problème. Devant une
+    fenêtre, vérifiez la hauteur de l’allège : en position debout, le plateau
+    ne doit pas buter contre la poignée.
+  </p>
+  <p>
+    Dans un coin, un
+    <a href="/tailles-et-formats/bureau-assis-debout-angle/">bureau assis-debout en L</a>
+    offre parfois plus de surface pour la même emprise. Et si vous avez de la
+    place et trois écrans, le
+    <a href="/tailles-et-formats/bureau-assis-debout-180x80/">format 180×80</a>
+    donne plus d’air.
+  </p>
+
+  <h2>Quel cadre sous ce plateau</h2>
+  <p>
+    Un 160×80 commence à peser, surtout en bois. Avec deux écrans, le total
+    grimpe vite. Les cadres à deux moteurs affichent en général une charge
+    maximale plus élevée : c’est la configuration la plus sereine. Vérifiez
+    aussi la largeur réglable du cadre, qui doit correspondre au plateau.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Télétravail quotidien sur deux écrans',
+      'Une pièce avec au moins 1,60 m de mur libre',
+    ]}
+    notFor={[
+      'Un studio, ou un couloir aménagé',
+      'Un poste à trois écrans ou plus',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout 160x80')} title="Bureaux 160×80" />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

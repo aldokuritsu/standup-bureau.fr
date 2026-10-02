@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Verdict from '../../components/Verdict.astro';
+import ForWho from '../../components/ForWho.astro';
+import AffiliateButton from '../../components/AffiliateButton.astro';
+import Sources from '../../components/Sources.astro';
+import SeeAlso from '../../components/SeeAlso.astro';
+import {
+  products,
+  getProduct,
+  amazonProductUrl,
+  amazonImageUrl,
+} from '../../data/products';
+import { compareUrl } from '../../data/compare';
+
+export function getStaticPaths() {
+  return products.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const product = getProduct(slug!);
+if (!product) {
+  throw new Error(`Produit inconnu : ${slug}`);
+}
+
+const kindLabel =
+  product.kind === 'bureau-complet' ? 'Bureau complet' : 'Cadre seul';
+const buyUrl = amazonProductUrl(product.asin);
+const img = amazonImageUrl(product.imageId, 'lg');
+const siblings = products.filter((p) => p.slug !== product.slug);
+
+const ratingText =
+  product.ratingCount > 0
+    ? `${product.rating.toFixed(1).replace('.', ',')} / 5 sur ${product.ratingCount.toLocaleString('fr-FR')} avis acheteurs (relevé ${product.ratingCheckedAt})`
+    : `environ ${product.rating.toFixed(1).replace('.', ',')} / 5 (relevé ${product.ratingCheckedAt} ; le compteur dépend de la variante)`;
+
+const productLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  brand: { '@type': 'Brand', name: product.brand },
+  sku: product.asin,
+  image: img,
+  description: product.blurb,
+  offers: {
+    '@type': 'Offer',
+    url: buyUrl,
+    availability: 'https://schema.org/InStock',
+    priceCurrency: 'EUR',
+  },
+};
+---
+
+<BaseLayout
+  title={`${product.shortName} : avis et critères de choix`}
+  description={`${product.shortName} : hauteur, charge, format et profils d’usage. Comparez avec d’autres modèles pour choisir selon votre poste.`}
+  crumbs={[
+    { label: 'Modèles à comparer', href: '/bureaux/' },
+    { label: product.shortName },
+  ]}
+  silo="fiches"
+  currentPath={`/bureaux/${product.slug}/`}
+  h1={`${product.shortName} : <em>pour qui, et pourquoi</em>`}
+  meta={[kindLabel, ratingText]}
+>
+  <p slot="lead">
+    Page de détail dans notre
+    <a href="/bureaux/">comparatif de modèles</a>.
+    Specs constructeur, synthèse d’avis reformulée, et critères « pour qui ».
+    Pas de test en laboratoire : l’idée est de décider vite si ce modèle
+    mérite d’entrer dans votre short-list.
+  </p>
+
+  <script type="application/ld+json" set:html={JSON.stringify(productLd)} />
+
+  <figure class="product-hero">
+    <a href={buyUrl} rel="sponsored noopener" target="_blank">
+      <img
+        src={img}
+        alt={`${product.shortName} : vue produit officielle`}
+        width="800"
+        height="800"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+    <figcaption>
+      Image constructeur (CDN marketplace). Cliquez pour voir l’offre actuelle
+      <span class="sr-only">(lien affilié)</span>.
+    </figcaption>
+  </figure>
+
+  <Verdict title="En bref" criteria={product.strengths} />
+
+  <p>
+    <a class="btn btn--primary" href={`/bureaux/comparer/?focus=${product.slug}`}
+      >Comparer avec un autre modèle</a
+    >
+  </p>
+
+  <AffiliateButton
+    href={buyUrl}
+    title={`Offre pour ${product.shortName}`}
+    label="Voir l’offre"
+  />
+
+  <h2>Caractéristiques relevées</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Données constructeur</strong>
+        Vérifiez-les le jour de l’achat : les variantes changent.
+      </caption>
+      <tbody>
+        <tr>
+          <th scope="row">Type</th>
+          <td>{kindLabel}</td>
+        </tr>
+        <tr>
+          <th scope="row">Marque</th>
+          <td>{product.brand}</td>
+        </tr>
+        <tr>
+          <th scope="row">Hauteur</th>
+          <td>{product.heightRange}</td>
+        </tr>
+        <tr>
+          <th scope="row">Charge max</th>
+          <td>{product.loadKg}&nbsp;kg</td>
+        </tr>
+        <tr>
+          <th scope="row">Format</th>
+          <td>{product.size}</td>
+        </tr>
+        <tr>
+          <th scope="row">Moteurs</th>
+          <td>{product.motors}</td>
+        </tr>
+        <tr>
+          <th scope="row">Mémoires</th>
+          <td>{product.memories}</td>
+        </tr>
+        <tr>
+          <th scope="row">Bruit annoncé</th>
+          <td>{product.noise}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ForWho forWho={product.bestFor} notFor={product.notFor} />
+
+  <h2>Points de vigilance</h2>
+  <ul>
+    {product.watchouts.map((w) => <li>{w}</li>)}
+  </ul>
+
+  <h2>Ce que disent les avis (synthèse)</h2>
+  <p>{product.reviewSynthesis}</p>
+
+  <h2>Comparer avec</h2>
+  <ul class="pair-list">
+    {
+      siblings.map((s) => (
+        <li>
+          <a href={compareUrl(product.slug, s.slug)}>
+            {product.shortName} vs {s.shortName}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Guides liés</h2>
+  <ul>
+    {
+      product.relatedGuideHrefs.map((l) => (
+        <li>
+          <a href={l.href}>{l.label}</a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <SeeAlso icon="layers">
+    Retour au
+    <a href="/bureaux/">comparatif des modèles</a>
+    ou à l’
+    <a href="/bureaux/comparer/">outil deux modèles</a>.
+  </SeeAlso>
+
+  <AffiliateButton
+    href={buyUrl}
+    title="Vérifier le prix actuel"
+    label="Voir l’offre"
+  />
+
+  <Sources
+    items={[
+      {
+        label: `Offre constructeur / marketplace (${product.shortName})`,
+        href: buyUrl,
+      },
+      {
+        label: 'INRS, Travail sur écran',
+        href: 'https://www.inrs.fr/risques/travail-ecran/prevention-risques.html',
+      },
+    ]}
+  />
+</BaseLayout>

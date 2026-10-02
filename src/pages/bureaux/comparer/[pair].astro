@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import CompareTable from '../../../components/CompareTable.astro';
+import { products, getProduct } from '../../../data/products';
+import {
+  allComparePairs,
+  parsePairKey,
+} from '../../../data/compare';
+
+export function getStaticPaths() {
+  return allComparePairs().map(({ key }) => ({ params: { pair: key } }));
+}
+
+const { pair } = Astro.params;
+const parsed = parsePairKey(pair!);
+if (!parsed) throw new Error(`Paire invalide : ${pair}`);
+const a = getProduct(parsed[0]);
+const b = getProduct(parsed[1]);
+if (!a || !b) throw new Error(`Produits introuvables pour ${pair}`);
+---
+
+<BaseLayout
+  title={`${a.shortName} vs ${b.shortName} : comparatif`}
+  description={`Comparatif ${a.shortName} et ${b.shortName} : hauteur, charge, format, moteurs, profils d’usage.`}
+  crumbs={[
+    { label: 'Modèles à comparer', href: '/bureaux/' },
+    { label: 'Comparer', href: '/bureaux/comparer/' },
+    { label: `${a.shortName} vs ${b.shortName}` },
+  ]}
+  silo="fiches"
+  currentPath={`/bureaux/comparer/${pair}/`}
+  h1={`${a.shortName} <em>vs</em> ${b.shortName}`}
+>
+  <p slot="lead">
+    Mise en regard des critères utiles pour choisir. Changez de duo via le
+    sélecteur, ou revenez à
+    <a href="/bureaux/comparer/">l’outil de comparaison</a>.
+  </p>
+
+  <form class="compare-form" method="get" action="/bureaux/comparer/" id="pair-switch">
+    <div class="compare-form__field">
+      <label for="cmp-a">Modèle A</label>
+      <select id="cmp-a" name="a">
+        {
+          products.map((p) => (
+            <option value={p.slug} selected={p.slug === a.slug}>
+              {p.shortName}
+              {p.kind === 'cadre' ? ' (cadre)' : ''}
+            </option>
+          ))
+        }
+      </select>
+    </div>
+    <div class="compare-form__field">
+      <label for="cmp-b">Modèle B</label>
+      <select id="cmp-b" name="b">
+        {
+          products.map((p) => (
+            <option value={p.slug} selected={p.slug === b.slug}>
+              {p.shortName}
+              {p.kind === 'cadre' ? ' (cadre)' : ''}
+            </option>
+          ))
+        }
+      </select>
+    </div>
+    <button type="submit" class="btn btn--primary">Comparer</button>
+  </form>
+
+  <CompareTable a={a} b={b} />
+
+  <p class="compare-note">
+    Liens d’achat en affiliation : commission possible, sans surcoût.
+    <a href="/affiliation/">Transparence affiliation</a>.
+  </p>
+
+  <script is:inline>
+    (function () {
+      const form = document.getElementById('pair-switch');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const a = document.getElementById('cmp-a').value;
+        const b = document.getElementById('cmp-b').value;
+        if (a === b) return;
+        const key = [a, b].sort().join('-vs-');
+        window.location.href = '/bureaux/comparer/' + key + '/';
+      });
+    })();
+  </script>
+</BaseLayout>

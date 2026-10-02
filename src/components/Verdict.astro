@@ -1,0 +1,34 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  title?: string;
+  criteria: string[];
+  note?: string | false;
+}
+const {
+  title = 'L’essentiel',
+  criteria,
+  note = 'Synthèse de fiches fabricants, de sources publiques et d’avis d’acheteurs reformulés. Rien n’a été testé en laboratoire.',
+} = Astro.props;
+---
+
+<aside class="verdict" aria-label={title}>
+  <p class="verdict__title">{title}</p>
+  <ul>
+    {
+      criteria.map((c) => (
+        <li>
+          <Icon name="check" />
+          <span set:html={c} />
+        </li>
+      ))
+    }
+  </ul>
+  {
+    note && (
+      <p class="verdict__note">
+        {note} <a href="/methodologie/">Notre méthode</a>
+      </p>
+    )
+  }
+</aside>

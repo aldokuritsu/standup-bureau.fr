@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Verdict from '../../components/Verdict.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import AffiliateButton from '../../components/AffiliateButton.astro';
+import Sources from '../../components/Sources.astro';
+import { products, amazonSearch } from '../../data/products';
+import { S } from '../../data/sources';
+
+const completes = products.filter((p) => p.kind === 'bureau-complet');
+const frames = products.filter((p) => p.kind === 'cadre');
+---
+
+<BaseLayout
+  title="Comparer des bureaux assis-debout : 5 modèles selon vos critères"
+  description="Comparez des bureaux assis-debout sur la hauteur, la charge, le format et l’usage. Packs complets et cadres : choisissez le modèle adapté à votre poste."
+  crumbs={[{ label: 'Modèles à comparer' }]}
+  silo="fiches"
+  currentPath="/bureaux/"
+  variant="hub"
+  eyebrow="Comparatif"
+  h1="Cinq modèles pour <em>trancher selon vos critères</em>"
+>
+  <p slot="lead">
+    L’objectif n’est pas un podium. C’est d’aligner hauteur, charge utile,
+    format et type (complet ou cadre) avec votre poste réel. Utilisez
+    l’<a href="/bureaux/comparer/">outil pour comparer deux modèles</a>,
+    ou parcourez la sélection ci-dessous. Méthode :
+    <a href="/methodologie/">comment nous travaillons</a>.
+  </p>
+
+  <p class="compare-cta">
+    <a class="btn btn--primary" href="/bureaux/comparer/">Comparer deux modèles</a>
+  </p>
+
+  <Verdict
+    title="Critères à garder en tête"
+    criteria={[
+      '<strong>Hauteur</strong> : la course doit couvrir assis et debout pour votre morphologie.',
+      '<strong>Charge</strong> : écrans + bras + périphériques, avec une marge.',
+      '<strong>Format</strong> : profondeur proche de 80&nbsp;cm si vous travaillez sur écran fixe.',
+      '<strong>Type</strong> : pack prêt à monter, ou cadre si vous avez déjà un plateau.',
+    ]}
+  />
+
+  <h2>Vue d’ensemble</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Les cinq modèles, en une grille</strong>
+        Specs constructeur ; notes acheteurs relevées le 2 oct. 2026.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Modèle</th>
+          <th scope="col">Type</th>
+          <th scope="col">Hauteur</th>
+          <th scope="col">Charge</th>
+          <th scope="col">Note</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          products.map((p) => (
+            <tr>
+              <th scope="row">
+                <a href={`/bureaux/${p.slug}/`}>{p.shortName}</a>
+              </th>
+              <td>{p.kind === 'bureau-complet' ? 'Complet' : 'Cadre'}</td>
+              <td>{p.heightRange}</td>
+              <td>{p.loadKg}&nbsp;kg</td>
+              <td>
+                {p.rating.toFixed(1).replace('.', ',')}
+                {p.ratingCount > 0
+                  ? ` (${p.ratingCount.toLocaleString('fr-FR')})`
+                  : ''}
+              </td>
+              <td>
+                <a href={`/bureaux/comparer/?focus=${p.slug}`}>Comparer</a>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Bureaux complets (plateau inclus)</h2>
+  <div class="product-grid">
+    {completes.map((p) => <ProductCard product={p} />)}
+  </div>
+
+  <h2>Cadres seuls (votre plateau)</h2>
+  <div class="product-grid">
+    {frames.map((p) => <ProductCard product={p} />)}
+  </div>
+
+  <h2>Pas encore sûr du format ?</h2>
+  <p>
+    Repartez des guides
+    <a href="/matieres-et-technologies/bureau-assis-debout-electrique/">électriques</a>,
+    <a href="/tailles-et-formats/">tailles</a>
+    et
+    <a href="/meilleur-bureau-assis-debout/">grille d’achat</a>
+    avant de comparer des références précises.
+  </p>
+
+  <AffiliateButton
+    href={amazonSearch('bureau assis debout électrique')}
+    title="Parcourir d’autres offres"
+    label="Voir les offres"
+  />
+
+  <Sources items={[S.inrsEcran, S.cochrane]} />
+</BaseLayout>

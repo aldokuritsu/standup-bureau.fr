@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import SeeAlso from '../../../components/SeeAlso.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout IKEA : la gamme passée au crible"
+  description="TROTTEN, MITTZON, IDÅSEN, RELATERA : les bureaux assis-debout IKEA, leurs formats et leurs prix, comparés aux repères INRS. Ce qui vaut le coup, et ce qui est trop petit."
+  crumbs={[
+    { label: 'Marques et modèles', href: '/marques-et-modeles/' },
+    { label: 'IKEA' },
+  ]}
+  silo="marques"
+  currentPath="/marques-et-modeles/bureau-assis-debout-ikea/"
+  h1="Bureau assis-debout IKEA : <em>la gamme passée au crible</em>"
+  meta={['Prix relevés sur ikea.com le 2 octobre 2026']}
+>
+  <p slot="lead">
+    IKEA propose une douzaine de bureaux réglables, de 139 à 749 €. Le grand
+    avantage, c’est de pouvoir les essayer en magasin. Le piège, c’est que la
+    plupart sont plus petits que les repères ergonomiques. Cette fiche fait
+    partie de notre
+    <a href="/marques-et-modeles/">comparatif des marques et enseignes</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Le <strong>TROTTEN 160×80</strong> électrique à 270 € est la meilleure porte d’entrée : c’est le moins cher du catalogue au format recommandé.',
+      'Seuls quatre modèles atteignent 160 cm de large et 80 cm de profondeur. Les autres conviennent à un portable ou un seul écran.',
+      'En magasin, testez la stabilité en position haute : poussez le plateau de côté, il ne doit presque pas bouger.',
+      'Ignorez l’argument des calories : il n’est pas soutenu par la recherche.',
+    ]}
+  />
+
+  <h2>La gamme, format par format</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Bureaux assis-debout IKEA</strong>
+        Prix relevés sur la catégorie officielle le 2 octobre 2026. Ils évoluent souvent.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Modèle</th>
+          <th scope="col">Format</th>
+          <th scope="col">Réglage indiqué</th>
+          <th scope="col">Prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">RELATERA</th><td>90×60 et 117×60</td><td>Non motorisé</td><td>139 € et 149 €</td></tr>
+        <tr><th scope="row">GLADHÖJDEN</th><td>100×60</td><td>Non motorisé</td><td>149 €</td></tr>
+        <tr><th scope="row">SEGRARE</th><td>110×60</td><td>Non motorisé</td><td>159 €</td></tr>
+        <tr><th scope="row">TROTTEN</th><td>120×70</td><td>Électrique</td><td>199 €</td></tr>
+        <tr><th scope="row">TROTTEN</th><td class="is-good">160×80</td><td>Électrique</td><td>270 €</td></tr>
+        <tr><th scope="row">TRAVSPORT</th><td>120×70</td><td>Électrique</td><td>279 €</td></tr>
+        <tr><th scope="row">MITTZON</th><td>120×80, 140×60</td><td>Électrique</td><td>479 € et 509 €</td></tr>
+        <tr><th scope="row">MITTZON</th><td class="is-good">160×80</td><td>Électrique</td><td>599 €</td></tr>
+        <tr><th scope="row">MÅLOMRÅDE</th><td class="is-good">180×80</td><td>Électrique, bras d’écran inclus</td><td>599 €</td></tr>
+        <tr><th scope="row">IDÅSEN</th><td class="is-good">160×80</td><td>Voir la fiche</td><td>749 €</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    En vert, les formats qui respectent les repères de l’INRS pour un poste sur
+    écran : 80 cm de profondeur recommandés, 160 cm de large au minimum. Les
+    autres ne sont pas de mauvais bureaux, mais ils sont pensés pour un
+    ordinateur portable ou un écran unique.
+  </p>
+
+  <h2>Ce qu’IKEA fait bien</h2>
+  <p>
+    Pouvoir monter et descendre le bureau avant de payer, c’est rare. Vous
+    entendez le moteur, vous jugez la vitesse, vous vérifiez si la hauteur
+    maximale suffit pour vous. Pour un grand gabarit, c’est un vrai plus. Les
+    prix d’entrée de gamme sont aussi bien placés : un 160×80 électrique à
+    270 €, c’est un point de comparaison utile avant de regarder ailleurs.
+  </p>
+
+  <h2>Ce qu’il faut prendre avec recul</h2>
+  <p>
+    La page catégorie d’IKEA affirme qu’en alternant les positions, vous
+    « brûlez probablement plus de calories ». La revue Cochrane ne rapporte
+    aucun effet démontré sur le poids : elle mesure une baisse du temps passé
+    assis, avec des preuves de faible qualité. Même chose pour la posture, que
+    le bureau n’améliore pas à lui seul.
+  </p>
+  <p>
+    Côté gamme, l’essentiel des petits prix est en 60 ou 70 cm de profondeur.
+    C’est juste pour garder un écran à bonne distance, entre 50 et 70 cm des
+    yeux selon l’INRS, tout en laissant de la place au clavier.
+  </p>
+
+  <h2>Comparer avant de vous décider</h2>
+  <p>
+    Pour un cadre plus robuste ou une hauteur maximale supérieure, le choix
+    s’élargit beaucoup en ligne : notre fiche sur les
+    <a href="/marques-et-modeles/bureau-assis-debout-amazon/">bureaux assis-debout vendus sur Amazon</a>
+    explique comment trier. Si vous préférez rester en magasin,
+    <a href="/marques-et-modeles/bureau-assis-debout-conforama/">l’offre de Conforama</a>
+    permet une autre comparaison.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Vous voulez tester le bureau avant de l’acheter',
+      'Vous cherchez un 160×80 électrique à petit prix',
+      'Vous avez un magasin IKEA à proximité pour le retrait ou un éventuel retour',
+    ]}
+    notFor={[
+      'Vous êtes très grand et la hauteur maximale des modèles testés ne suffit pas',
+      'Vous voulez un poste à trois écrans',
+      'Vous cherchez un cadre seul pour votre propre plateau',
+    ]}
+  />
+
+  <AffiliateButton
+    href={amazonSearch('bureau assis debout électrique 160x80')}
+    title="Comparer avec des modèles équivalents en ligne"
+  />
+
+  <Sources items={[S.ikea, S.inrsEcran, S.cochrane]} />
+
+  <SeeAlso>
+    Quel que soit le modèle, le confort vient surtout des réglages : voyez nos
+    repères pour
+    <a href="/ergonomie/bureau-ergonomique-assis-debout/">régler un bureau assis-debout de façon ergonomique</a>.
+  </SeeAlso>
+</BaseLayout>

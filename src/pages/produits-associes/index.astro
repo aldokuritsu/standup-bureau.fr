@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Verdict from '../../components/Verdict.astro';
+import GuideList from '../../components/GuideList.astro';
+import Sources from '../../components/Sources.astro';
+import { S } from '../../data/sources';
+---
+
+<BaseLayout
+  title="Pieds et cadres de bureau assis debout : monter le sien"
+  description="Monter son bureau assis-debout avec un cadre ou des pieds réglables sous votre plateau : économies, compatibilité, pièges. Le dossier pour choisir la bonne base."
+  crumbs={[{ label: 'Produits associés' }]}
+  silo="produits"
+  currentPath="/produits-associes/"
+  variant="hub"
+  eyebrow="Pieds et cadres"
+  h1="Monter son bureau assis-debout <em>sur votre propre plateau</em>"
+>
+  <p slot="lead">
+    Vous avez déjà un beau plateau, ou vous voulez un format sur mesure ? Un
+    cadre électrique ou des pieds réglables suffisent à le transformer en
+    bureau assis-debout. C’est souvent moins cher, à condition de vérifier la
+    compatibilité. Un dossier de notre
+    <a href="/">guide du bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'La largeur réglable du cadre doit correspondre à celle de votre plateau.',
+      'Plateau, écrans et accessoires réunis doivent rester sous la charge maximale, avec de la marge.',
+      'Le plateau doit être assez épais et rigide pour accepter les vis du cadre sans fléchir.',
+    ]}
+  />
+
+  <h2>Cadre ou pieds : la différence</h2>
+  <p>
+    Un <strong>cadre</strong> est une structure complète : deux colonnes, une
+    traverse, des supports de plateau, un boîtier de commande. Il se règle en
+    largeur et accueille la plupart des plateaux rectangulaires. Les
+    <strong>pieds</strong> ou colonnes vendus seuls sont plus minimalistes : à
+    vous de prévoir la liaison, ou de les fixer sur une structure existante.
+  </p>
+
+  <h2>Les deux guides du dossier</h2>
+  <GuideList
+    items={[
+      {
+        href: '/produits-associes/cadre-bureau-assis-debout/',
+        title: 'Le cadre de bureau assis-debout',
+        text: 'La solution la plus courante : comment choisir sa largeur, ses moteurs, et réussir le montage.',
+      },
+      {
+        href: '/produits-associes/pied-bureau-assis-debout/',
+        title: 'Les pieds de bureau assis-debout',
+        text: 'Colonnes réglables vendues seules : pour qui, et ce qu’il faut prévoir en plus.',
+      },
+    ]}
+  />
+
+  <h2>Le bon calcul</h2>
+  <p>
+    Un cadre seul coûte moins cher qu’un bureau complet du même niveau, et
+    vous gardez un plateau qui vous plaît. Mais comptez aussi le temps de
+    montage, les vis adaptées et, si le plateau est neuf, son prix. L’économie
+    est réelle surtout quand vous réutilisez un plateau existant.
+  </p>
+
+  <Sources items={[S.flexispot, S.inrsEcran]} />
+</BaseLayout>

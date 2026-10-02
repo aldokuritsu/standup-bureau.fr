@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Verdict from '../../components/Verdict.astro';
+import GuideList from '../../components/GuideList.astro';
+import ForWho from '../../components/ForWho.astro';
+import AffiliateButton from '../../components/AffiliateButton.astro';
+import Sources from '../../components/Sources.astro';
+import { amazonSearch } from '../../data/silos';
+import { S } from '../../data/sources';
+---
+
+<BaseLayout
+  title="Meilleur bureau assis debout : la grille pour choisir le vôtre"
+  description="Le meilleur bureau assis-debout est celui qui passe cinq critères : hauteur, stabilité, surface, réglage, garantie. La grille détaillée, et les guides par budget, matière et style."
+  crumbs={[{ label: 'Meilleur bureau assis-debout' }]}
+  silo="guides"
+  currentPath="/meilleur-bureau-assis-debout/"
+  variant="hub"
+  eyebrow="Guides d’achat"
+  h1="Le meilleur bureau assis-debout, <em>c’est celui qui passe la grille</em>"
+>
+  <p slot="lead">
+    Nous ne publions pas de podium : sans tests en atelier, un classement serait
+    de l’affichage. Nous publions à la place les cinq critères qui éliminent les
+    mauvais achats, et des guides par situation. Pour le parcours complet,
+    repartez de notre
+    <a href="/">page d’accueil sur le bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    title="La grille en cinq questions"
+    criteria={[
+      '<strong>Hauteur.</strong> La plage couvre-t-elle vos coudes, assis et debout, plateau compris ?',
+      '<strong>Stabilité.</strong> Le plateau reste-t-il immobile en position haute quand vous tapez ?',
+      '<strong>Surface.</strong> 80 cm de profondeur, et assez de largeur pour vos écrans ?',
+      '<strong>Réglage.</strong> Le mécanisme suit-il le rythme auquel vous changerez de position ?',
+      '<strong>Après-vente.</strong> Qui vend, quelle garantie moteur, comment renvoyer ?',
+    ]}
+  />
+
+  <h2>Les critères, en détail</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Comment vérifier chaque critère</strong>
+        Ce que vous pouvez contrôler vous-même, sur la fiche ou en magasin.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Critère</th>
+          <th scope="col">Où regarder</th>
+          <th scope="col">Signal d’alerte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Hauteur</th>
+          <td>Fiche technique : hauteur min et max, avec ou sans plateau</td>
+          <td>Plage absente, ou max à peine au-dessus de votre coude debout</td>
+        </tr>
+        <tr>
+          <th scope="row">Stabilité</th>
+          <td>Avis récents, photos d’acheteurs, essai en magasin</td>
+          <td>« Penche », « vacille », « oscille » qui reviennent souvent</td>
+        </tr>
+        <tr>
+          <th scope="row">Surface</th>
+          <td>Dimensions du plateau</td>
+          <td>Moins de 80 cm de profondeur pour un poste sur écran fixe</td>
+        </tr>
+        <tr>
+          <th scope="row">Réglage</th>
+          <td>Type de mécanisme, mémoires</td>
+          <td>Manivelle ou manuel si vous visez une alternance toutes les 30 minutes</td>
+        </tr>
+        <tr>
+          <th scope="row">Après-vente</th>
+          <td>Bloc vendeur, page garantie de la marque</td>
+          <td>Vendeur inconnu, garantie moteur non précisée</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Les seuils de surface et de rythme viennent des recommandations de l’INRS
+    pour le travail sur écran et contre la sédentarité. Le reste relève du bon
+    sens d’acheteur, et notre <a href="/methodologie/">méthode de travail</a>
+    explique comment nous synthétisons les avis.
+  </p>
+
+  <h2>Les guides par situation</h2>
+  <GuideList
+    items={[
+      {
+        href: '/meilleur-bureau-assis-debout/bureau-assis-debout-pas-cher/',
+        title: 'Un bureau assis-debout pas cher',
+        text: 'Où se situe le seuil en dessous duquel on achète un problème, et comment en tirer le maximum.',
+      },
+      {
+        href: '/meilleur-bureau-assis-debout/bureau-assis-debout-bois/',
+        title: 'Un bureau assis-debout en bois',
+        text: 'Massif, plaqué ou mélaminé : poids, entretien et compatibilité avec le moteur.',
+      },
+      {
+        href: '/meilleur-bureau-assis-debout/bureau-assis-debout-avec-rangement/',
+        title: 'Un bureau assis-debout avec rangement',
+        text: 'Tiroirs fixés au plateau, caisson roulant ou étagère : ce qui monte avec le bureau, et ce qui doit rester au sol.',
+      },
+      {
+        href: '/meilleur-bureau-assis-debout/bureau-assis-debout-design/',
+        title: 'Un bureau assis-debout design',
+        text: 'Piètement fin, plateau sans vis apparente, câbles invisibles : quand l’esthétique tient la route.',
+      },
+    ]}
+  />
+
+  <h2>Un point de départ, si vous voulez un nom</h2>
+  <p>
+    À titre de repère, dans le catalogue IKEA, le modèle le moins cher qui
+    coche à la fois un réglage électrique et le format 160×80 est le TROTTEN,
+    à 270 € au 2 octobre 2026. Ce n’est pas un verdict de test : c’est le
+    croisement de deux critères objectifs et d’un prix public. Il vous reste à
+    vérifier la hauteur maximale pour votre taille, idéalement en magasin.
+  </p>
+  <p>
+    Sur le marché en ligne, nous avons aussi publié un
+    <a href="/bureaux/">comparatif de cinq modèles</a>
+    (Songmics LSD026, ErGear 160×80, FlexiSpot E6, MAIDeSITe T2 Pro Plus,
+    cadre Songmics dual), avec un
+    <a href="/bureaux/comparer/">outil pour en comparer deux</a>.
+  </p>
+
+  <ForWho
+    yesTitle="Ce guide est pour vous si"
+    noTitle="Passez votre chemin si"
+    forWho={[
+      'Vous êtes sur le point d’acheter et voulez une dernière vérification',
+      'Vous hésitez entre plusieurs modèles proches',
+      'Vous préférez des critères à un classement',
+    ]}
+    notFor={[
+      'Vous voulez un top 10 noté sur 20',
+      'Vous attendez qu’un bureau règle seul un problème de dos',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout électrique 160x80')} title="Passer la grille sur des modèles réels" />
+
+  <Sources items={[S.inrsEcran, S.inrsSed, S.ikea]} />
+</BaseLayout>

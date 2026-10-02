@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Pied bureau assis debout : choisir une base réglable"
+  description="Pieds de bureau assis-debout : colonnes réglables, kits de piètement, compatibilité avec votre plateau, charge et hauteur. Ce qu’il faut vérifier avant d’acheter."
+  crumbs={[
+    { label: 'Produits associés', href: '/produits-associes/' },
+    { label: 'Pieds' },
+  ]}
+  silo="produits"
+  currentPath="/produits-associes/pied-bureau-assis-debout/"
+  eyebrow="Pieds et cadres"
+  h1="Pied de bureau assis-debout : <em>choisir une base réglable</em>"
+>
+  <p slot="lead">
+    Sous le nom « pied de bureau assis-debout », on trouve aussi bien des
+    piètements complets que des colonnes vendues à l’unité. Dans les deux cas,
+    l’idée est la même : garder votre plateau et lui donner une hauteur
+    variable. Une page de notre
+    <a href="/produits-associes/">guide des bases pour bureau réglable</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Plage de hauteur : comparez-la à vos coudes, assis et debout, plateau compris.',
+      'Charge maximale : plateau, écrans et accessoires additionnés, avec de la marge.',
+      'Fixations : vérifiez l’entraxe et l’épaisseur de plateau acceptée.',
+    ]}
+  />
+
+  <h2>Ce que vous achetez vraiment</h2>
+  <p>
+    Beaucoup de produits vendus comme « pieds » sont en fait des piètements
+    complets, avec traverse et commande : ce sont des
+    <a href="/produits-associes/cadre-bureau-assis-debout/">cadres de bureau assis-debout</a>,
+    et notre guide dédié s’applique. Les colonnes vendues seules, elles,
+    s’adressent aux projets particuliers : plateau de forme libre, établi,
+    poste d’atelier.
+  </p>
+
+  <h2>Pour les grands</h2>
+  <p>
+    C’est la hauteur maximale qui compte. Mesurez votre coude en position
+    debout, chaussures aux pieds, et ajoutez quelques centimètres de marge.
+    Rappelez-vous que la hauteur annoncée pour des pieds n’inclut pas le
+    plateau. Les colonnes à trois segments offrent en général la plus grande
+    course.
+  </p>
+
+  <h2>Les erreurs classiques</h2>
+  <p>
+    Un plateau trop lourd pour la charge annoncée. Des vis trop longues qui
+    traversent le plateau. Des câbles trop courts pour la position haute. Et un
+    sol irrégulier : la plupart des pieds ont des patins réglables, servez-vous
+    en pour que le plateau soit parfaitement de niveau.
+  </p>
+
+  <ForWho
+    forWho={['Vous avez un plateau à réutiliser', 'Vous avez un projet sur mesure']}
+    notFor={['Vous voulez un bureau prêt à l’emploi', 'Vous ne voulez pas de montage']}
+  />
+
+  <AffiliateButton href={amazonSearch('pied bureau assis debout électrique')} title="Pieds et piètements réglables" />
+
+  <Sources items={[S.flexispot, S.inrsEcran]} />
+</BaseLayout>

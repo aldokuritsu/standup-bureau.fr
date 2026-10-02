@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Verdict from '../../components/Verdict.astro';
+import GuideList from '../../components/GuideList.astro';
+import Sources from '../../components/Sources.astro';
+import { S } from '../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau ergonomique : ce que la recherche dit du assis-debout"
+  description="Bureau ergonomique et assis-debout : ce que recommandent l’INRS et la revue Cochrane, ce qui est prouvé et ce qui ne l’est pas, et comment régler son poste."
+  crumbs={[{ label: 'Ergonomie' }]}
+  silo="ergonomie"
+  currentPath="/ergonomie/"
+  variant="hub"
+  h1="Bureau ergonomique : <em>ce que dit vraiment la recherche</em>"
+>
+  <p slot="lead">
+    « Ergonomique » est devenu un argument de vente. Derrière le mot, il y a
+    des repères précis, publiés par l’INRS, et des études compilées par la
+    revue Cochrane. Les voici, sans enjoliver. Un dossier de notre
+    <a href="/">guide du bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Un bureau assis-debout réduit le temps assis : environ 100 minutes par jour de travail au début, 57 minutes entre trois et douze mois.',
+      'La qualité de ces preuves est jugée faible, et aucune étude ne suit les utilisateurs au-delà d’un an.',
+      'L’INRS recommande l’alternance des postures, idéalement toutes les 30 minutes, et du matériel réglable.',
+    ]}
+    note="Chiffres issus de la revue Cochrane Shrestha et al. (2018) et des pages de prévention de l’INRS, citées en bas de page."
+  />
+
+  <h2>Ce qui est établi</h2>
+  <p>
+    La revue Cochrane a rassemblé les études sur les interventions qui visent
+    à réduire le temps assis au travail. Pour les bureaux assis-debout, elle
+    observe une baisse d’environ 100 minutes par journée de travail sur les
+    trois premiers mois, puis de 57 minutes entre trois et douze mois. Le temps
+    assis total, au travail et en dehors, baisse aussi. Les bureaux debout
+    fixes et les bureaux assis-debout ne montrent pas de différence nette entre
+    eux sur ce critère.
+  </p>
+
+  <h2>Ce qui ne l’est pas</h2>
+  <p>
+    Les auteurs jugent la qualité des preuves faible, en raison de la taille des
+    études et de leurs limites de méthode. Ils notent que l’effet a tendance à
+    diminuer avec le temps et qu’on ne sait rien au-delà d’un an. La revue ne
+    rapporte pas de bénéfice démontré sur le poids. Quant au mal de dos, aucun
+    meuble ne le soigne : si une douleur persiste, c’est un professionnel de
+    santé qu’il faut consulter.
+  </p>
+
+  <h2>Ce que recommande l’INRS</h2>
+  <p>
+    L’INRS ne parle pas de rester debout, mais de changer de posture. Ses pages
+    de prévention recommandent de rompre la position assise idéalement toutes
+    les 30 minutes, de limiter le temps assis cumulé à moins de 5 heures par
+    jour, et de choisir du matériel réglable, idéalement électrique avec
+    mémorisation de hauteurs. Elles donnent aussi des repères chiffrés pour
+    régler le poste, que nous détaillons dans le guide ci-dessous.
+  </p>
+
+  <GuideList
+    items={[
+      {
+        href: '/ergonomie/bureau-ergonomique-assis-debout/',
+        title: 'Régler un bureau ergonomique assis-debout',
+        text: 'Hauteur du plateau, position de l’écran, clavier, rythme d’alternance : la méthode pas à pas, avec les repères de l’INRS.',
+      },
+    ]}
+  />
+
+  <Sources items={[S.cochrane, S.inrsSed, S.inrsEcran, S.inrsEd6538]} />
+</BaseLayout>

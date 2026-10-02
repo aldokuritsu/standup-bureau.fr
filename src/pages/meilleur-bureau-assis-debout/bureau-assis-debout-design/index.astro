@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout design : beau, et stable en position haute"
+  description="Bureau assis-debout design : piètement, finitions, câbles invisibles, boîtier discret. Comment choisir un beau bureau réglable sans sacrifier la stabilité."
+  crumbs={[
+    { label: 'Meilleur bureau assis-debout', href: '/meilleur-bureau-assis-debout/' },
+    { label: 'Design' },
+  ]}
+  silo="guides"
+  currentPath="/meilleur-bureau-assis-debout/bureau-assis-debout-design/"
+  eyebrow="Guides d’achat"
+  h1="Bureau assis-debout design : <em>beau, et stable en position haute</em>"
+>
+  <p slot="lead">
+    Un bureau réglable qui trône dans le salon doit être beau. Mais un
+    piètement fin qui vacille en position haute reste un mauvais achat, aussi
+    élégant soit-il. Ce guide prolonge notre
+    <a href="/meilleur-bureau-assis-debout/">méthode pour trouver le meilleur bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Testez ou vérifiez la stabilité en position haute avant de regarder la couleur.',
+      'Un beau bureau, c’est d’abord un bureau sans câbles qui pendent : prévoyez goulotte et gaine.',
+      'Boîtier de commande discret, vis invisibles, chants soignés : ce sont ces détails qui font la différence.',
+    ]}
+  />
+
+  <h2>Ce qui fait un bureau réglable réussi</h2>
+  <p>
+    Le piètement d’abord. Les colonnes, la traverse et les pieds restent
+    visibles en permanence, surtout en position haute. Un acier peint dans une
+    teinte accordée au plateau, noir, blanc ou gris, s’intègre mieux qu’une
+    structure argentée de bureau d’entreprise. Mais une colonne fine n’est pas
+    forcément moins stable : jugez sur les avis et, si possible, sur pièce.
+  </p>
+  <p>
+    Le plateau ensuite : matière, couleur, épaisseur et forme des bords. Puis les
+    détails, souvent négligés. Le clavier de commande doit être discret et
+    affleurant. Les vis de fixation ne doivent pas se voir. Et le boîtier
+    électronique, sous le plateau, doit rester invisible depuis la pièce.
+  </p>
+
+  <h2>Les câbles, ennemis du design</h2>
+  <p>
+    Rien ne gâche plus un bel ensemble qu’une grappe de câbles qui pend sous le
+    plateau. Une goulotte fixée dessous et une gaine qui descend le long d’un
+    pied règlent la question. Prévoyez assez de longueur pour la position la
+    plus haute.
+  </p>
+
+  <h2>Concilier style et budget</h2>
+  <p>
+    Le design se paie souvent. Si la facture monte trop, notre guide du
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-pas-cher/"><strong>bureau assis-debout à petit prix</strong></a>
+    montre où l’on peut économiser sans y perdre. La matière compte aussi : voyez
+    les
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-bois/">plateaux en bois, massif ou plaqué</a>,
+    et pour garder l’ensemble net, le
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-avec-rangement/">guide du rangement adapté</a>.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Le bureau est dans une pièce de vie, visible de tous',
+      'Les finitions comptent autant que les fonctions',
+    ]}
+    notFor={[
+      'Un usage d’atelier où le plateau prend des chocs',
+      'Le prix est votre premier critère',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout design')} title="Bureaux assis-debout design" />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

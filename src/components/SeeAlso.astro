@@ -1,0 +1,12 @@
+---
+import Icon, { type IconName } from './Icon.astro';
+interface Props {
+  icon?: IconName;
+}
+const { icon = 'posture' } = Astro.props;
+---
+
+<aside class="see-also">
+  <Icon name={icon} />
+  <p><slot /></p>
+</aside>

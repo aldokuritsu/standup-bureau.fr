@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Verdict from '../../components/Verdict.astro';
+import GuideList from '../../components/GuideList.astro';
+import ForWho from '../../components/ForWho.astro';
+import Sources from '../../components/Sources.astro';
+import { S } from '../../data/sources';
+---
+
+<BaseLayout
+  title="Taille bureau assis debout : quel format choisir"
+  description="120×60, 140×70, 160×80, 180×80 ou bureau d’angle : quelle taille de bureau assis-debout pour vos écrans et votre pièce. Repères INRS et calcul de largeur."
+  crumbs={[{ label: 'Tailles et formats' }]}
+  silo="tailles"
+  currentPath="/tailles-et-formats/"
+  variant="hub"
+  h1="Quelle taille de bureau assis-debout <em>pour vos écrans et votre pièce</em>"
+>
+  <p slot="lead">
+    La taille se décide avec un mètre ruban, pas sur une photo. Deux chiffres
+    comptent : la profondeur, pour garder l’écran à bonne distance, et la
+    largeur, pour vos écrans et vos papiers. C’est la deuxième étape de notre
+    <a href="/">guide du bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'L’INRS recommande <strong>80 cm de profondeur</strong> pour un poste sur écran, et jusqu’à 110 cm avec plusieurs écrans.',
+      'Côté largeur, l’INRS recommande 180 cm et tolère <strong>160 cm</strong>.',
+      'Le 160×80 est donc le plus petit format qui respecte les deux repères. En dessous, c’est un compromis assumé.',
+    ]}
+  />
+
+  <h2>Les formats, en un coup d’œil</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        <strong>Formats courants et repères INRS</strong>
+        Largeur des écrans calculée pour des dalles 16:9, cadres non compris.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Format</th>
+          <th scope="col">Profondeur</th>
+          <th scope="col">Écrans réalistes</th>
+          <th scope="col">Usage type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">120×60</th><td>Sous le repère</td><td>Un écran ou un portable</td><td>Studio, poste d’appoint</td></tr>
+        <tr><th scope="row">140×70</th><td>Sous le repère</td><td>Un écran, ou deux 24 pouces serrés</td><td>Pièce moyenne, télétravail léger</td></tr>
+        <tr><th scope="row">160×80</th><td class="is-good">Conforme</td><td>Deux 24 ou 27 pouces</td><td>Télétravail quotidien</td></tr>
+        <tr><th scope="row">180×80</th><td class="is-good">Conforme</td><td>Deux 27 pouces avec de la marge, ou trois petits</td><td>Multi-écrans, papier et écran</td></tr>
+        <tr><th scope="row">Angle</th><td class="is-good">Jusqu’à 110 cm dans le coin</td><td>Trois écrans et plus</td><td>Poste complet, coin de pièce</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Le calcul de largeur</h2>
+  <p>
+    Un écran de 24 pouces au format 16:9 mesure environ 53 cm de large, sans
+    son cadre. Un 27 pouces, environ 60 cm. Deux 24 pouces côte à côte occupent
+    donc 107 cm, deux 27 pouces 120 cm. Ajoutez une dizaine de centimètres de
+    chaque côté pour respirer, une lampe, un téléphone : vous voyez vite
+    pourquoi 140 cm devient juste avec deux grands écrans.
+  </p>
+
+  <h2>Mesurer la pièce avant tout</h2>
+  <p>
+    Mesurez le mur disponible, puis la profondeur jusqu’au premier obstacle
+    derrière votre chaise. Vous devez pouvoir reculer et vous lever sans
+    vous cogner. Pensez aussi aux plinthes, aux radiateurs et aux fenêtres :
+    en position haute, le plateau passe parfois devant une poignée ou un
+    rebord.
+  </p>
+
+  <h2>Les guides par format</h2>
+  <GuideList
+    items={[
+      {
+        href: '/tailles-et-formats/bureau-assis-debout-160x80/',
+        title: 'Le bureau assis-debout 160×80',
+        text: 'Le format de référence pour deux écrans. Ce qu’il demande comme place, et comment l’installer.',
+      },
+      {
+        href: '/tailles-et-formats/bureau-assis-debout-140x70/',
+        title: 'Le format 140×70',
+        text: 'Pour une pièce moyenne : ce qu’on gagne en encombrement, ce qu’on perd en profondeur.',
+      },
+      {
+        href: '/tailles-et-formats/bureau-assis-debout-120x60/',
+        title: 'Le compact 120×60',
+        text: 'Le petit format pour studio ou poste d’appoint, et ses vraies limites.',
+      },
+      {
+        href: '/tailles-et-formats/bureau-assis-debout-180x80/',
+        title: 'Le grand 180×80',
+        text: 'Le format recommandé par l’INRS en largeur. Pour multi-écrans et documents.',
+      },
+      {
+        href: '/tailles-et-formats/bureau-assis-debout-angle/',
+        title: 'Le bureau assis-debout d’angle',
+        text: 'La seule façon d’atteindre une grande profondeur utile. Plus lourd, plus exigeant en stabilité.',
+      },
+    ]}
+  />
+
+  <ForWho
+    yesTitle="Ce dossier vous aidera si"
+    noTitle="Allez plutôt ailleurs si"
+    forWho={[
+      'Vous hésitez entre deux formats',
+      'Vous aménagez une chambre ou un salon avec une contrainte de place',
+      'Vous ajoutez un deuxième ou un troisième écran',
+    ]}
+    notFor={[
+      'Vous cherchez la hauteur maximale pour une grande taille : elle dépend du cadre, pas du plateau',
+    ]}
+  />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

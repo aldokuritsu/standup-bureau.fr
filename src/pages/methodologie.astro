@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sources from '../components/Sources.astro';
+import { S } from '../data/sources';
+---
+
+<BaseLayout
+  title="Méthodologie : comment nous écrivons nos guides"
+  description="Comment Standup Bureau produit ses guides de bureaux assis-debout : sources utilisées, synthèse des avis, absence de tests en laboratoire, critères publics, affiliation."
+  crumbs={[{ label: 'Méthodologie' }]}
+  variant="plain"
+  eyebrow="Transparence"
+  h1="Comment nous écrivons <em>nos guides</em>"
+>
+  <p slot="lead">
+    Nous ne testons pas de bureaux en atelier, et nous préférons le dire tout de
+    suite. Nos guides reposent sur des sources publiques que vous pouvez
+    vérifier, et sur une lecture attentive des avis d’acheteurs. Voici
+    exactement comment.
+  </p>
+
+  <h2>Nos sources, par ordre de confiance</h2>
+  <p>
+    <strong>Pour tout ce qui touche à la santé</strong>, nous nous appuyons sur
+    deux références : l’INRS, l’organisme français de prévention des risques
+    professionnels, et la revue Cochrane de 2018 sur la réduction du temps
+    assis au travail. Une affirmation sur le dos, la posture ou le poids n’est
+    publiée que si elle s’appuie sur l’une ou l’autre, et nous citons laquelle.
+  </p>
+  <p>
+    <strong>Pour les caractéristiques des produits</strong>, nous lisons les
+    fiches des fabricants et des enseignes : dimensions, plages de hauteur,
+    charge, garantie. Ce sont des données déclaratives, que nous présentons
+    comme telles. Les prix sont datés, car ils changent souvent.
+  </p>
+  <p>
+    <strong>Pour l’usage réel</strong>, nous lisons les avis d’acheteurs, en
+    particulier les plus critiques et les plus récents. Nous en tirons des
+    tendances, reformulées, jamais des citations.
+  </p>
+
+  <h2>Ce que nous ne faisons pas</h2>
+  <p>
+    Nous n’inventons ni testeur, ni expérience d’usage, ni note sur 20. Nous ne
+    publions pas de classement sans critères visibles. Nous ne promettons ni
+    perte de poids ni dos réparé, parce que les études disponibles ne le
+    montrent pas. Et nous ne recommandons jamais un produit dont la fiche omet
+    la plage de hauteur ou la charge maximale.
+  </p>
+
+  <h2>Les critères que nous appliquons partout</h2>
+  <p>
+    Plage de hauteur, stabilité en position haute, surface du plateau
+    comparée aux repères de l’INRS, mode de réglage adapté à la fréquence
+    d’alternance, et service après-vente. Ces cinq critères figurent sur
+    chacune de nos fiches, avant tout lien d’achat.
+  </p>
+
+  <h2>Comment nous sommes financés</h2>
+  <p>
+    Par l’affiliation Amazon : quand vous achetez après avoir cliqué sur un de
+    nos liens signalés, nous touchons une commission. Elle ne change pas votre
+    prix, et elle ne change pas nos critères. Le détail est sur notre page
+    <a href="/affiliation/">affiliation</a>.
+  </p>
+
+  <h2>Nos limites</h2>
+  <p>
+    Ne pas tester nous-mêmes est une vraie limite. Nous la compensons par la
+    transparence sur nos sources et par des critères que vous pouvez vérifier
+    seul, mètre ruban en main. Si vous repérez une erreur, une fiche périmée ou
+    un prix qui a changé, <a href="/contact/">écrivez-nous</a> : nous corrigeons.
+  </p>
+
+  <Sources items={[S.inrsEcran, S.inrsSed, S.inrsEd6538, S.cochrane]} />
+</BaseLayout>

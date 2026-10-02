@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import { products } from '../../../data/products';
+import { allComparePairs, compareUrl } from '../../../data/compare';
+
+const pairs = allComparePairs();
+const defaultA = products[0].slug;
+const defaultB = products[1].slug;
+---
+
+<BaseLayout
+  title="Comparer deux bureaux assis-debout"
+  description="Outil pour comparer deux modèles : hauteur, charge utile, format, moteurs et profil d’usage. Choisissez le duo qui correspond à votre poste."
+  crumbs={[
+    { label: 'Modèles à comparer', href: '/bureaux/' },
+    { label: 'Comparer' },
+  ]}
+  silo="fiches"
+  currentPath="/bureaux/comparer/"
+  variant="hub"
+  eyebrow="Comparatif"
+  h1="Comparer <em>deux modèles</em>"
+>
+  <p slot="lead">
+    Sélectionnez deux références, puis lancez le face-à-face. L’outil met en
+    avant les critères qui décident vraiment d’un achat : course de hauteur,
+    charge, type (complet ou cadre) et situations d’usage. Voir aussi la
+    <a href="/bureaux/">liste des modèles</a>.
+  </p>
+
+  <Verdict
+    title="Avant de comparer"
+    criteria={[
+      'Deux modèles du même type (complet vs complet, ou cadre vs cadre) se lisent plus clairement.',
+      'Vérifiez que la charge couvre votre poste avec une marge.',
+      'Mesurez votre hauteur de coude debout avant de juger la course.',
+    ]}
+  />
+
+  <form class="compare-form" id="compare-picker">
+    <div class="compare-form__field">
+      <label for="cmp-a">Premier modèle</label>
+      <select id="cmp-a" name="a" required>
+        {
+          products.map((p) => (
+            <option value={p.slug} selected={p.slug === defaultA}>
+              {p.shortName}
+              {p.kind === 'cadre' ? ' (cadre)' : ''}
+            </option>
+          ))
+        }
+      </select>
+    </div>
+    <div class="compare-form__field">
+      <label for="cmp-b">Second modèle</label>
+      <select id="cmp-b" name="b" required>
+        {
+          products.map((p) => (
+            <option value={p.slug} selected={p.slug === defaultB}>
+              {p.shortName}
+              {p.kind === 'cadre' ? ' (cadre)' : ''}
+            </option>
+          ))
+        }
+      </select>
+    </div>
+    <button type="submit" class="btn btn--primary">Voir le comparatif</button>
+  </form>
+
+  <p class="compare-note" id="compare-error" hidden>
+    Choisissez deux modèles différents.
+  </p>
+
+  <h2>Duos déjà prêts</h2>
+  <ul class="pair-list">
+    {
+      pairs.map(({ key, a, b }) => (
+        <li>
+          <a href={`/bureaux/comparer/${key}/`}>
+            {a.shortName} <span aria-hidden="true">vs</span> {b.shortName}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>Tous les modèles</h2>
+  <div class="product-grid">
+    {
+      products.map((p) => (
+        <ProductCard
+          product={p}
+          showBuy={false}
+          compareHref={`/bureaux/comparer/?focus=${p.slug}`}
+        />
+      ))
+    }
+  </div>
+
+  <script is:inline>
+    (function () {
+      const form = document.getElementById('compare-picker');
+      const err = document.getElementById('compare-error');
+      if (!form) return;
+      const params = new URLSearchParams(window.location.search);
+      const focus = params.get('focus');
+      const selA = document.getElementById('cmp-a');
+      const selB = document.getElementById('cmp-b');
+      if (focus && selA) {
+        selA.value = focus;
+        if (selB && selB.value === focus) {
+          const opt = Array.from(selB.options).find((o) => o.value !== focus);
+          if (opt) selB.value = opt.value;
+        }
+      }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const a = selA.value;
+        const b = selB.value;
+        if (a === b) {
+          if (err) err.hidden = false;
+          return;
+        }
+        if (err) err.hidden = true;
+        const key = [a, b].sort().join('-vs-');
+        window.location.href = '/bureaux/comparer/' + key + '/';
+      });
+    })();
+  </script>
+</BaseLayout>

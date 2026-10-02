@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AffiliateButton from '../components/AffiliateButton.astro';
+import Sources from '../components/Sources.astro';
+import DeskIllustration from '../components/DeskIllustration.astro';
+import Icon from '../components/Icon.astro';
+import { amazonSearch } from '../data/silos';
+
+const INRS_ECRAN = 'https://www.inrs.fr/risques/travail-ecran/prevention-risques.html';
+const INRS_SED = 'https://www.inrs.fr/risques/postures-sedentaires/prevention-risques.html';
+const COCHRANE =
+  'https://www.cochrane.org/evidence/CD010912_workplace-interventions-methods-reducing-time-spent-sitting-work';
+---
+
+<BaseLayout
+  title="Bureau assis debout : bien le choisir pour votre dos et votre taille"
+  description="Électrique ou manuel, 140×70 ou 160×80, IKEA ou Amazon : comment choisir un bureau assis-debout selon votre dos, votre taille et votre pièce. Repères INRS et Cochrane."
+  variant="home"
+>
+  <section class="home-hero">
+    <div class="wrap home-hero__grid">
+      <div>
+        <p class="eyebrow"><Icon name="height" />Guide d’achat indépendant</p>
+        <h1><span class="nowrap">Bureau assis-debout</span> : trouver celui <em>à votre hauteur</em></h1>
+        <p class="lead">
+          Un bureau qui monte et descend ne soigne pas le dos à lui seul. Il vous
+          aide à changer de position plus souvent, à condition d’être simple à
+          régler, stable une fois en haut et assez grand pour votre poste. C’est
+          sur ces critères que nous trions les modèles, avant de parler prix.
+        </p>
+        <div class="home-hero__actions">
+          <a class="btn btn--primary" href="/matieres-et-technologies/">
+            Électrique, manuel ou manivelle
+            <Icon name="arrow" />
+          </a>
+          <a class="btn btn--ghost" href="/tailles-et-formats/">
+            Quelle taille de plateau
+          </a>
+        </div>
+      </div>
+      <figure class="art">
+        <DeskIllustration />
+        <figcaption>
+          Hauteurs de plan de travail conseillées pour le travail sur écran,
+          d’après les repères de prévention de l’<a href={INRS_ECRAN} rel="noopener" target="_blank">INRS</a>.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+  <div class="edge" aria-hidden="true"></div>
+
+  <section class="figures" aria-labelledby="chiffres">
+    <div class="wrap">
+      <h2 id="chiffres">Quatre chiffres <em>à garder en tête</em></h2>
+      <p class="figures__intro">
+        Ils viennent de l’INRS, l’organisme français de prévention des risques
+        au travail, et de la revue Cochrane qui a compilé les études sur le
+        sujet. Tout le reste du site en découle.
+      </p>
+      <dl>
+        <div>
+          <dt>30<small>min</small></dt>
+          <dd>
+            Le rythme idéal pour interrompre la position assise. Un bureau qui se
+            règle en quelques secondes rend ce rythme tenable ; un bureau pénible
+            à monter reste en bas.
+            <cite><a href={INRS_SED} rel="noopener" target="_blank">INRS, postures sédentaires</a></cite>
+          </dd>
+        </div>
+        <div>
+          <dt>80<small>cm</small></dt>
+          <dd>
+            La profondeur de plateau recommandée pour un poste sur écran. Les
+            formats courants 120×60 et 140×70 restent en dessous.
+            <cite><a href={INRS_ECRAN} rel="noopener" target="_blank">INRS, travail sur écran</a></cite>
+          </dd>
+        </div>
+        <div>
+          <dt>100<small>min</small></dt>
+          <dd>
+            Le temps assis en moins par journée de travail pendant les trois
+            premiers mois. L’effet retombe ensuite à 57 minutes, et la preuve
+            est jugée de faible qualité.
+            <cite><a href={COCHRANE} rel="noopener" target="_blank">Cochrane, Shrestha et al. 2018</a></cite>
+          </dd>
+        </div>
+        <div>
+          <dt>1<small>an</small></dt>
+          <dd>
+            Au-delà, aucune étude retenue par Cochrane ne mesure l’effet.
+            Personne ne peut donc vous promettre un dos guéri ou des kilos en
+            moins.
+            <cite><a href={COCHRANE} rel="noopener" target="_blank">Cochrane, Shrestha et al. 2018</a></cite>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ordre">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="ordre">Trois décisions, <em>dans cet ordre</em></h2>
+        <p>
+          La plupart des achats ratés suivent l’ordre inverse : on part d’une
+          marque ou d’un prix, puis on découvre que le plateau est trop petit,
+          ou qu’il ne monte pas assez haut.
+        </p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="steps__num" aria-hidden="true">01</span>
+          <h3>Le mode de réglage</h3>
+          <div>
+            <p>
+              Moteur, levier ou manivelle. C’est lui qui décide si vous
+              changerez vraiment de position dans la journée. L’INRS conseille
+              du matériel réglable, idéalement électrique avec mémorisation des
+              hauteurs. Le manuel garde sa place pour un usage occasionnel.
+            </p>
+            <p>
+              <a class="more" href="/matieres-et-technologies/">
+                Comparer électrique, manuel et manivelle <Icon name="arrow" />
+              </a>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="steps__num" aria-hidden="true">02</span>
+          <h3>Le format du plateau</h3>
+          <div>
+            <p>
+              Comptez vos écrans, mesurez la pièce, puis vérifiez la hauteur
+              maximale si vous êtes grand. Les repères de l’INRS (80 cm de
+              profondeur, 160 cm de large au minimum toléré) éliminent déjà une
+              bonne partie de l’offre d’entrée de gamme.
+            </p>
+            <p>
+              <a class="more" href="/tailles-et-formats/">
+                Du 120×60 au bureau d’angle : quel format pour vous <Icon name="arrow" />
+              </a>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="steps__num" aria-hidden="true">03</span>
+          <h3>L’enseigne ou la marque</h3>
+          <div>
+            <p>
+              IKEA et BUT pour voir le bureau avant de payer. Amazon pour la
+              largeur du choix. FlexiSpot pour une marque qui ne fait que ça.
+              Ce qui les sépare vraiment, ce sont les retours, le SAV et la
+              disponibilité des pièces.
+            </p>
+            <p>
+              <a class="more" href="/marques-et-modeles/">
+                IKEA, Amazon, FlexiSpot, Conforama : ce qui les distingue <Icon name="arrow" />
+              </a>
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--tint" aria-labelledby="situations">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="situations">Selon votre <em>situation</em></h2>
+        <p>
+          Un budget serré, un plateau déjà acheté, trois écrans et une tour PC,
+          ou simplement l’envie de bien régler votre poste : chaque cas a son
+          dossier.
+        </p>
+      </div>
+      <ul class="index">
+        <li>
+          <Icon name="layers" class="index__icon" />
+          <h3><a href="/bureaux/">Comparer des modèles selon vos critères</a></h3>
+          <p>Hauteur, charge, format, pack ou cadre : cinq références pour trancher, avec un comparateur deux à deux.</p>
+        </li>
+        <li>
+          <Icon name="award" class="index__icon" />
+          <h3><a href="/meilleur-bureau-assis-debout/">Le meilleur bureau assis-debout pour vous</a></h3>
+          <p>Pas cher, en bois, avec rangement ou design : ce que chaque option fait gagner, et ce qu’elle coûte en stabilité.</p>
+        </li>
+        <li>
+          <Icon name="user" class="index__icon" />
+          <h3><a href="/profils-d-utilisateurs/">Gamer, télétravail intensif, open space</a></h3>
+          <p>Poids d’un PC et de plusieurs écrans, bruit du moteur en visio, hauteurs mémorisées pour un poste partagé.</p>
+        </li>
+        <li>
+          <Icon name="frame" class="index__icon" />
+          <h3><a href="/produits-associes/">Pieds et cadres à monter soi-même</a></h3>
+          <p>La bonne piste si vous avez déjà un plateau qui vous plaît, ou si vous voulez un format sur mesure.</p>
+        </li>
+        <li>
+          <Icon name="posture" class="index__icon" />
+          <h3><a href="/ergonomie/">Régler son poste, assis comme debout</a></h3>
+          <p>Coudes, écran, clavier, pauses : les repères de l’INRS appliqués à un bureau qui change de hauteur.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="verite">
+    <div class="wrap">
+      <div class="section__head">
+        <h2 id="verite">Ce qu’il fait pour vous, <em>et ce qu’il ne fait pas</em></h2>
+        <p>
+          Beaucoup de pages marchandes promettent des calories brûlées ou un dos
+          réparé. Voici ce que disent réellement les sources.
+        </p>
+      </div>
+      <div class="truth">
+        <div>
+          <h3>Ce qu’il fait</h3>
+          <ul>
+            <li>Il réduit le temps passé assis au travail, surtout pendant les premiers mois d’usage.</li>
+            <li>Il rend possible la consigne de l’INRS : rompre la position assise régulièrement, idéalement toutes les 30 minutes.</li>
+            <li>Il s’adapte à votre taille, assis comme debout, et à celle de la personne qui partage le poste.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Ce qu’il ne fait pas</h3>
+          <ul>
+            <li>Il ne soigne pas un mal de dos. Si la douleur dure, parlez-en à un médecin ou à un kinésithérapeute.</li>
+            <li>Il ne fait pas maigrir : la revue Cochrane ne rapporte aucun effet démontré sur le poids.</li>
+            <li>Il ne remplace pas l’alternance. L’INRS parle de changer de posture, pas de passer la journée debout.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="narrow">
+        <AffiliateButton
+          href={amazonSearch('bureau assis debout électrique')}
+          title="Vous savez déjà ce qu’il vous faut ?"
+          label="Voir les bureaux électriques"
+        />
+        <p style="margin-top: 1rem">
+          Ou ouvrez directement notre
+          <a href="/bureaux/">comparatif de modèles</a>
+          (Songmics, ErGear, FlexiSpot, MAIDeSITe) et
+          <a href="/bureaux/comparer/">comparez-en deux</a>.
+        </p>
+
+        <section class="faq" aria-labelledby="faq">
+          <h2 id="faq">Questions fréquentes</h2>
+          <details>
+            <summary>Électrique ou manuel : lequel prendre ?</summary>
+            <p>
+              Si vous comptez changer de position plusieurs fois par jour,
+              l’électrique. Un bouton et quelques secondes : vous le faites
+              vraiment. Le manuel et la manivelle conviennent à un usage plus
+              rare, ou quand le budget ne laisse pas le choix.
+            </p>
+          </details>
+          <details>
+            <summary>Quelle largeur de plateau pour deux écrans ?</summary>
+            <p>
+              Deux dalles de 24 pouces au format 16:9 occupent environ 107 cm de
+              large, deux 27 pouces environ 120 cm, sans compter les bords. Un
+              plateau de 160 cm les accueille avec de la marge. À 140 cm, deux
+              27 pouces passent tout juste.
+            </p>
+          </details>
+          <details>
+            <summary>Combien de temps faut-il rester debout ?</summary>
+            <p>
+              Il n’existe pas de durée idéale à atteindre. L’INRS insiste plutôt
+              sur l’interruption : rompre la position assise idéalement toutes les
+              30 minutes, et limiter le temps assis cumulé, si possible sous les
+              5 heures par jour.
+            </p>
+          </details>
+        </section>
+
+        <Sources
+          items={[
+            { label: 'INRS, Travail sur écran : prévention des risques', href: INRS_ECRAN },
+            { label: 'INRS, Postures sédentaires : prévention des risques', href: INRS_SED },
+            { label: 'Cochrane, Shrestha et al. 2018 : interventions pour réduire le temps assis au travail', href: COCHRANE },
+          ]}
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

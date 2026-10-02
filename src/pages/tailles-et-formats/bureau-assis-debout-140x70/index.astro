@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout 140x70 : le compromis pour pièce moyenne"
+  description="Bureau assis-debout 140×70 : combien d’écrans il accepte, ce que coûtent les 10 cm de profondeur en moins, et quand préférer un 160×80 ou un angle."
+  crumbs={[
+    { label: 'Tailles et formats', href: '/tailles-et-formats/' },
+    { label: '140×70' },
+  ]}
+  silo="tailles"
+  currentPath="/tailles-et-formats/bureau-assis-debout-140x70/"
+  h1="Bureau assis-debout 140×70 : <em>le compromis des pièces moyennes</em>"
+>
+  <p slot="lead">
+    Le 140×70 gagne 20 cm de largeur et 10 de profondeur sur le format de
+    référence. Assez pour un écran et un portable, juste pour deux grands
+    écrans. Une page de notre
+    <a href="/tailles-et-formats/">comparatif des tailles et formats</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Idéal pour un écran principal et un portable à côté.',
+      'Deux écrans de 24 pouces passent, deux 27 pouces tout juste.',
+      'Les 70 cm de profondeur sont sous le repère INRS : utilisez un bras d’écran pour reculer la dalle.',
+    ]}
+  />
+
+  <h2>Ce que valent 10 cm de profondeur</h2>
+  <p>
+    L’INRS recommande 80 cm de profondeur et conseille de placer l’écran entre
+    50 et 70 cm des yeux, avec le clavier à 10 ou 15 cm du bord. Sur 70 cm, ces
+    distances se marchent dessus : le pied de l’écran prend de la place, et
+    vous finissez avec l’écran trop près. Un bras articulé fixé au bord arrière
+    libère la surface et permet de reculer la dalle au-delà du plateau.
+  </p>
+
+  <h2>Combien d’écrans</h2>
+  <p>
+    Deux écrans de 24 pouces occupent environ 107 cm : sur 140, il reste une
+    quinzaine de centimètres de chaque côté. Deux 27 pouces, environ 120 cm :
+    c’est possible, mais sans place pour autre chose. Si c’est votre
+    configuration, le
+    <a href="/tailles-et-formats/bureau-assis-debout-160x80/">plateau de 160×80</a>
+    sera plus confortable.
+  </p>
+
+  <h2>Quand c’est le bon choix</h2>
+  <p>
+    Une chambre où le bureau partage le mur avec une armoire. Un télétravail à
+    temps partiel sur portable avec un écran externe. Un poste pour adolescent.
+    Dans ces cas, le gain de place vaut le compromis. Et si vous avez un coin
+    libre, un
+    <a href="/tailles-et-formats/bureau-assis-debout-angle/">bureau d’angle</a>
+    peut offrir plus de surface pour un encombrement comparable.
+  </p>
+
+  <ForWho
+    forWho={['Un écran et un portable', 'Une pièce de taille moyenne']}
+    notFor={['Deux grands écrans avec documents', 'Trois écrans']}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout 140x70')} title="Bureaux 140×70" />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

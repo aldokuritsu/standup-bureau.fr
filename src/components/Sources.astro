@@ -1,0 +1,21 @@
+---
+interface Props {
+  items: { href: string; label: string }[];
+}
+const { items } = Astro.props;
+---
+
+<section class="sources" aria-labelledby="sources-title">
+  <h2 id="sources-title">Sources</h2>
+  <ol>
+    {
+      items.map((s) => (
+        <li>
+          <a href={s.href} rel="noopener" target="_blank">
+            {s.label}
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</section>

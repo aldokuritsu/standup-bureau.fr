@@ -1,0 +1,30 @@
+---
+import Icon from './Icon.astro';
+interface Props {
+  forWho: string[];
+  notFor: string[];
+  yesTitle?: string;
+  noTitle?: string;
+}
+const {
+  forWho,
+  notFor,
+  yesTitle = 'Bon choix si',
+  noTitle = 'Mauvais choix si',
+} = Astro.props;
+---
+
+<div class="fit">
+  <div class="fit__box">
+    <h3><Icon name="check" />{yesTitle}</h3>
+    <ul>
+      {forWho.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+  <div class="fit__box fit__box--no">
+    <h3><Icon name="cross" />{noTitle}</h3>
+    <ul>
+      {notFor.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</div>

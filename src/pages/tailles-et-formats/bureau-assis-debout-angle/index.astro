@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout d’angle : avantages, limites, choix"
+  description="Bureau assis-debout d’angle : plus de profondeur pour plusieurs écrans, mais plus de poids et de moteurs. Gauche ou droite, stabilité, encombrement : comment choisir."
+  crumbs={[
+    { label: 'Tailles et formats', href: '/tailles-et-formats/' },
+    { label: 'Angle' },
+  ]}
+  silo="tailles"
+  currentPath="/tailles-et-formats/bureau-assis-debout-angle/"
+  h1="Bureau assis-debout d’angle : <em>la profondeur, au prix du poids</em>"
+>
+  <p slot="lead">
+    Un bureau en L exploite un coin souvent perdu et offre, au centre, une
+    profondeur qu’aucun plateau droit n’atteint. C’est la réponse au poste
+    multi-écrans. En contrepartie, il est plus lourd, plus cher et plus
+    exigeant pour la structure. Une page de notre
+    <a href="/tailles-et-formats/">dossier sur les tailles de bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Le seul format qui approche les 110 cm de profondeur que l’INRS évoque pour plusieurs écrans.',
+      'Trois colonnes, et souvent trois moteurs : vérifiez la charge et la synchronisation.',
+      'Retour à gauche ou à droite : choisissez selon la pièce, ou prenez un modèle réversible.',
+    ]}
+  />
+
+  <h2>Ce que l’angle apporte</h2>
+  <p>
+    Au creux du L, la profondeur disponible dépasse largement celle d’un
+    plateau droit. Vous pouvez reculer trois écrans en arc de cercle à la bonne
+    distance, entre 50 et 70 cm des yeux selon l’INRS, et garder une aile libre
+    pour écrire ou poser un portable. Pour un poste de travail complet, c’est
+    souvent la configuration la plus confortable.
+  </p>
+
+  <h2>Ce qu’il faut vérifier</h2>
+  <p>
+    La structure, d’abord : un bureau d’angle repose en général sur trois
+    colonnes. Elles doivent monter ensemble, sans que le plateau se vrille. Les
+    avis d’acheteurs signalent parfois des désynchronisations : lisez-les. La
+    charge, ensuite, avec un plateau plus grand et plus lourd. Enfin le sens :
+    un retour à droite ne se transforme pas toujours en retour à gauche.
+  </p>
+  <p>
+    Mesurez les deux murs et vérifiez que rien ne gêne en position haute :
+    fenêtre, radiateur, étagère.
+  </p>
+
+  <h2>Si vous hésitez</h2>
+  <p>
+    Pour deux écrans, un plateau droit suffit souvent : le
+    <a href="/tailles-et-formats/bureau-assis-debout-160x80/">160×80 droit</a>
+    est plus simple et moins cher. Pour plus de largeur sans angle, voyez le
+    <a href="/tailles-et-formats/bureau-assis-debout-180x80/">grand format 180×80</a>.
+  </p>
+
+  <ForWho
+    forWho={['Trois écrans ou plus', 'Un coin de pièce libre', 'Un poste mêlant écran et papier']}
+    notFor={['Une pièce sans coin dégagé', 'Un budget serré', 'Un déménagement fréquent']}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout angle électrique')} title="Bureaux assis-debout d’angle" />
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

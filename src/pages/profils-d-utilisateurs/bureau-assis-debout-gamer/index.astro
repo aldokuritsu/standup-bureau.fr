@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout gamer et gaming : les vrais critères"
+  description="Bureau assis-debout gamer ou gaming : charge pour la tour et les écrans, profondeur pour la souris, stabilité en position haute, câbles. Les critères avant les LED."
+  crumbs={[
+    { label: 'Profils d’utilisateurs', href: '/profils-d-utilisateurs/' },
+    { label: 'Gamer / gaming' },
+  ]}
+  silo="profils"
+  currentPath="/profils-d-utilisateurs/bureau-assis-debout-gamer/"
+  h1="Bureau assis-debout gamer : <em>la charge avant les LED</em>"
+>
+  <p slot="lead">
+    Un bureau gaming assis-debout porte souvent plus lourd qu’un bureau de
+    télétravail : écrans multiples, bras articulés, parfois la tour elle-même.
+    Avant le look, c’est la structure qui compte. Un profil de notre
+    <a href="/profils-d-utilisateurs/">dossier sur les usages du bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Additionnez tout ce qui sera posé dessus, tour comprise si elle n’est pas au sol, et gardez de la marge sur la charge maximale.',
+      'Un cadre à deux moteurs pour un poste chargé.',
+      'Au moins 80 cm de profondeur : la souris a besoin de place, et l’écran doit rester à distance.',
+      'Prévoyez une gaine pour les câbles : ils doivent suivre la course complète.',
+    ]}
+  />
+
+  <h2>La charge, premier critère</h2>
+  <p>
+    Faites le compte : le plateau, deux ou trois écrans, leurs bras, le
+    clavier, le casque, les enceintes, éventuellement la tour. Le total dépasse
+    vite celui d’un poste de bureau classique. Un cadre utilisé près de sa
+    limite monte plus lentement et vacille davantage en position haute,
+    justement quand vos mouvements de souris sont les plus vifs.
+  </p>
+  <p>
+    Si vous le pouvez, laissez la tour au sol, sur un support à roulettes : le
+    moteur vous remerciera. Prévoyez simplement des câbles assez longs pour la
+    position debout.
+  </p>
+
+  <h2>Profondeur et stabilité</h2>
+  <p>
+    Les jeux à la souris demandent une grande zone de glisse. Sur un plateau de
+    60 ou 70 cm, le tapis repousse le clavier et l’écran se retrouve trop près.
+    L’INRS recommande 80 cm de profondeur pour un poste sur écran : en gaming,
+    c’est un minimum. Côté stabilité, lisez les avis récents en cherchant les
+    mots « oscille » ou « tremble » en position haute.
+  </p>
+
+  <h2>Le bruit et les sessions longues</h2>
+  <p>
+    Si vous streamez, le moteur s’entendra pendant la course : réglez la
+    hauteur hors antenne. Pour le reste, les longues sessions sont précisément
+    celles où l’on reste figé. L’INRS conseille de rompre la position assise
+    idéalement toutes les 30 minutes : les écrans de chargement ou les pauses
+    entre deux parties sont de bons moments pour changer de position.
+  </p>
+  <p>
+    Si vous utilisez aussi le bureau pour travailler, les critères du
+    <a href="/profils-d-utilisateurs/bureau-assis-debout-professionnel/">bureau assis-debout pour usage professionnel</a>
+    s’appliquent en plus.
+  </p>
+
+  <ForWho
+    forWho={['Un PC fixe avec deux écrans ou plus', 'Des sessions longues', 'Un streaming occasionnel']}
+    notFor={['Un portable seul : un format compact suffit', 'Un budget qui ne permet pas un cadre solide']}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout gaming électrique')} title="Bureaux assis-debout gaming" />
+
+  <Sources items={[S.inrsSed, S.inrsEcran]} />
+</BaseLayout>

@@ -1,0 +1,48 @@
+---
+/** Pictos au trait, dessinés pour le site (pas d’emoji, pas de kit générique). */
+const paths = {
+  bolt: 'M13 2 4.5 13.5H11L10 22l8.5-11.5H12L13 2Z',
+  sliders: 'M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1.5 14h5M9.5 8h5M17.5 16h5',
+  crank: 'M9 15a3 3 0 1 0 6 0 3 3 0 0 0-6 0ZM12 12V4h7M19 4v4',
+  ruler: 'M2.5 16.5 16.5 2.5l5 5-14 14-5-5ZM6.5 12.5l2 2M9.5 9.5l2 2M12.5 6.5l2 2',
+  tag: 'M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8ZM7.5 7.5h.01',
+  award: 'M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12ZM8.5 13.9 7 22l5-3 5 3-1.5-8.1',
+  user: 'M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z',
+  frame: 'M2.5 7h19M6 7v13M18 7v13M3.5 20.5h5M15.5 20.5h5M6 12.5h12',
+  posture: 'M12 5.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM12 8v6.5M12 14.5 9 22M12 14.5l3 7.5M7.5 10.5 12 9l4.5 1.5',
+  check: 'M20 6 9 17l-5-5',
+  cross: 'M18 6 6 18M6 6l12 12',
+  arrow: 'M4 12h16M14 6l6 6-6 6',
+  external: 'M7 17 17 7M8.5 7H17v8.5',
+  book: 'M4 19.5V5a2 2 0 0 1 2-2h14v15H6a2 2 0 0 0-2 2Zm0 0A2 2 0 0 0 6 22h14',
+  layers: 'M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5',
+  info: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM12 16v-4M12 8h.01',
+  height: 'M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4',
+} as const;
+
+export type IconName = keyof typeof paths;
+
+interface Props {
+  name: IconName;
+  class?: string;
+  size?: number;
+}
+
+const { name, class: className, size } = Astro.props;
+---
+
+<svg
+  class={className}
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d={paths[name]}></path>
+</svg>

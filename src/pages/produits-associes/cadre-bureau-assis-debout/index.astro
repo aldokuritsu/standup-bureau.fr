@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Cadre bureau assis debout : choisir et monter sa structure"
+  description="Cadre de bureau assis-debout électrique : largeur réglable, un ou deux moteurs, colonnes à deux ou trois segments, compatibilité plateau, montage. Le guide pour bien choisir."
+  crumbs={[
+    { label: 'Produits associés', href: '/produits-associes/' },
+    { label: 'Cadre' },
+  ]}
+  silo="produits"
+  currentPath="/produits-associes/cadre-bureau-assis-debout/"
+  eyebrow="Pieds et cadres"
+  h1="Cadre de bureau assis-debout : <em>choisir et monter sa structure</em>"
+>
+  <p slot="lead">
+    Le cadre, c’est la structure métallique sous le plateau : colonnes,
+    traverse, moteurs et commande. Acheté seul, il transforme n’importe quel
+    plateau rigide en bureau assis-debout. Une page de notre
+    <a href="/produits-associes/">dossier sur les pieds et cadres</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Plage de largeur réglable compatible avec votre plateau.',
+      'Deux moteurs pour un grand plateau ou un poste chargé.',
+      'Trois segments par colonne si vous êtes grand : la course est en général plus longue.',
+      'Hauteur annoncée sans plateau : ajoutez son épaisseur.',
+    ]}
+  />
+
+  <h2>Les quatre caractéristiques à comparer</h2>
+  <p>
+    <strong>La largeur réglable.</strong> Un cadre s’allonge ou se raccourcit
+    pour s’adapter au plateau. Vérifiez que la largeur de votre plateau est
+    dans la plage, avec un débord raisonnable de chaque côté.
+  </p>
+  <p>
+    <strong>La plage de hauteur.</strong> Elle est souvent donnée pour le cadre
+    seul. Ajoutez l’épaisseur du plateau, puis comparez à vos hauteurs de coude
+    assis et debout.
+  </p>
+  <p>
+    <strong>Les moteurs.</strong> Un moteur unique entraîne les deux colonnes
+    par un arbre. Deux moteurs, un par colonne, supportent en général une charge
+    plus élevée selon les fiches des fabricants.
+  </p>
+  <p>
+    <strong>Les segments.</strong> Deux ou trois tubes télescopiques par
+    colonne. Trois segments, c’est en général une plage plus étendue, vers le
+    haut comme vers le bas.
+  </p>
+
+  <h2>Le plateau qui va dessus</h2>
+  <p>
+    Il doit être rigide et assez épais pour tenir les vis sans fléchir entre les
+    supports. Un plateau trop fin peut se creuser au milieu avec le temps,
+    surtout s’il est long. Un panneau creux, de type alvéolaire, peut ne pas
+    offrir de prise aux vis là où il faut : regardez où tombent les points de
+    fixation.
+  </p>
+
+  <h2>Le montage</h2>
+  <p>
+    Prévoyez une visseuse, un niveau, et de l’aide pour retourner le bureau
+    une fois assemblé à l’envers. Fixez le boîtier de commande et la goulotte
+    de câbles avant de retourner l’ensemble. Après la première montée, vérifiez
+    que le plateau est de niveau : sinon, la procédure de réinitialisation de
+    la notice règle généralement le problème.
+  </p>
+  <p>
+    Si vous voulez une solution plus légère encore, voyez les
+    <a href="/produits-associes/pied-bureau-assis-debout/">pieds réglables vendus seuls</a>.
+  </p>
+
+  <ForWho
+    forWho={['Vous avez un plateau à réutiliser', 'Vous voulez un plateau sur mesure', 'Vous remplacez un piètement fixe']}
+    notFor={['Vous ne voulez pas monter de meuble', 'Votre plateau est fin ou creux']}
+  />
+
+  <AffiliateButton href={amazonSearch('cadre bureau assis debout électrique double moteur')} title="Cadres électriques" />
+
+  <Sources items={[S.flexispot, S.desktronic]} />
+</BaseLayout>

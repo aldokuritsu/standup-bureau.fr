@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Affiliation : comment Standup Bureau est financé"
+  description="Standup Bureau est financé par le Programme Partenaires d’Amazon. Ce que cela implique, comment les liens sont signalés, et ce que cela ne change pas."
+  crumbs={[{ label: 'Affiliation' }]}
+  variant="plain"
+  eyebrow="Transparence"
+  h1="Comment le site <em>est financé</em>"
+>
+  <p slot="lead">
+    Standup Bureau participe au Programme Partenaires d’Amazon EU. En tant que
+    Partenaire Amazon, le site réalise un bénéfice sur les achats remplissant
+    les conditions requises.
+  </p>
+
+  <h2>Concrètement</h2>
+  <p>
+    Quand vous cliquez sur un bouton « Voir sur Amazon » de ce site, puis que
+    vous achetez, Amazon nous reverse une commission. Le prix que vous payez
+    reste exactement le même.
+  </p>
+
+  <h2>Comment les liens sont signalés</h2>
+  <p>
+    Chaque lien d’achat porte la mention « lien affilié », se trouve dans un
+    encadré distinct du texte, et est déclaré comme sponsorisé auprès des moteurs
+    de recherche. Les liens vers les sites des marques ou des enseignes cités
+    comme sources ne sont pas affiliés.
+  </p>
+
+  <h2>Ce que cela ne change pas</h2>
+  <p>
+    Nos critères sont publics et identiques pour tous les produits. Nous
+    indiquons pour qui un bureau n’est pas adapté, y compris quand il est vendu
+    sur Amazon. Ni Amazon, ni les marques citées ne valident nos contenus. Notre
+    façon de travailler est détaillée dans la
+    <a href="/methodologie/">méthodologie</a>.
+  </p>
+</BaseLayout>

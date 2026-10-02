@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout professionnel : télétravail et entreprise"
+  description="Bureau assis-debout professionnel : ce que recommande l’INRS pour les postes sur écran, les critères d’achat en entreprise ou en télétravail intensif, et l’organisation qui va avec."
+  crumbs={[
+    { label: 'Profils d’utilisateurs', href: '/profils-d-utilisateurs/' },
+    { label: 'Professionnel' },
+  ]}
+  silo="profils"
+  currentPath="/profils-d-utilisateurs/bureau-assis-debout-professionnel/"
+  h1="Bureau assis-debout professionnel : <em>ce que recommande l’INRS</em>"
+>
+  <p slot="lead">
+    Pour un télétravail à temps plein ou un poste d’entreprise, l’INRS est
+    précis : du matériel réglable, idéalement électrique avec mémorisation des
+    hauteurs. Le reste découle de l’usage intensif et du poste partagé. Un
+    profil de notre
+    <a href="/profils-d-utilisateurs/">dossier sur les profils d’utilisateurs</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Électrique, avec au moins deux hauteurs mémorisées par utilisateur.',
+      'Plateau d’au moins 160×80, conforme aux repères INRS pour le travail sur écran.',
+      'Moteur discret si le poste est en open space ou en visio fréquente.',
+      'Garantie, pièces détachées et interlocuteur clairement identifiés.',
+    ]}
+  />
+
+  <h2>Les repères de l’INRS</h2>
+  <p>
+    L’Institut national de recherche et de sécurité recommande des bureaux à
+    hauteur variable pour permettre l’alternance assis et debout, et conseille
+    à l’achat du matériel « idéalement électrique avec mémorisation de
+    hauteurs ». Il fixe aussi des objectifs : rompre la position assise
+    idéalement toutes les 30 minutes, et limiter le temps assis cumulé à moins
+    de 5 heures par jour.
+  </p>
+  <p>
+    Pour le poste lui-même, l’INRS donne une profondeur de plan de travail de
+    80 cm, une largeur de 180 cm recommandée et de 160 cm tolérée, une hauteur
+    de 68 à 76 cm assis et de 107 à 115 cm debout pour une personne de taille
+    moyenne.
+  </p>
+
+  <h2>Le poste partagé</h2>
+  <p>
+    En flex-office, le même bureau sert à des personnes de tailles très
+    différentes. Les mémoires évitent de tâtonner à chaque arrivée. Vérifiez
+    que la plage de hauteur couvre à la fois les plus petits et les plus grands
+    de l’équipe : la hauteur minimale compte autant que la maximale.
+  </p>
+
+  <h2>Le mobilier ne suffit pas</h2>
+  <p>
+    La revue Cochrane de 2018 montre que les bureaux assis-debout réduisent le
+    temps assis, d’environ 100 minutes par jour au début, puis 57 minutes entre
+    trois et douze mois. L’effet s’érode. L’INRS insiste de son côté sur
+    l’organisation du travail, qui doit elle aussi encourager l’alternance des
+    postures, et sur les pauses actives. Le bureau est un outil, pas une politique de
+    prévention à lui seul.
+  </p>
+  <p>
+    Si le poste sert aussi pour le jeu le soir, les contraintes de charge du
+    <a href="/profils-d-utilisateurs/bureau-assis-debout-gamer/">bureau assis-debout gaming</a>
+    s’ajoutent.
+  </p>
+
+  <ForWho
+    forWho={['Télétravail à temps plein', 'Poste partagé en flex-office', 'Équipement d’une équipe']}
+    notFor={['Usage occasionnel : un modèle plus simple suffit']}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout électrique mémoire 160x80')} title="Bureaux électriques à mémoires" />
+
+  <Sources items={[S.inrsSed, S.inrsEcran, S.cochrane]} />
+</BaseLayout>

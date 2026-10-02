@@ -1,0 +1,158 @@
+---
+/**
+ * Tableau de comparaison A vs B (serveur ou client).
+ */
+import type { Product } from '../data/products';
+import {
+  amazonProductUrl,
+  amazonImageUrl,
+} from '../data/products';
+
+interface Props {
+  a: Product;
+  b: Product;
+}
+
+const { a, b } = Astro.props;
+
+const rows: { label: string; av: string; bv: string; hint?: string }[] = [
+  {
+    label: 'Type',
+    av: a.kind === 'bureau-complet' ? 'Bureau complet' : 'Cadre seul',
+    bv: b.kind === 'bureau-complet' ? 'Bureau complet' : 'Cadre seul',
+  },
+  { label: 'Marque', av: a.brand, bv: b.brand },
+  { label: 'Hauteur', av: a.heightRange, bv: b.heightRange },
+  {
+    label: 'Charge max',
+    av: `${a.loadKg} kg`,
+    bv: `${b.loadKg} kg`,
+    hint: a.loadKg !== b.loadKg
+      ? a.loadKg > b.loadKg
+        ? `${a.shortName} encaisse plus`
+        : `${b.shortName} encaisse plus`
+      : 'Égalité sur la charge annoncée',
+  },
+  { label: 'Format', av: a.size, bv: b.size },
+  { label: 'Moteurs', av: a.motors, bv: b.motors },
+  { label: 'Mémoires', av: a.memories, bv: b.memories },
+  { label: 'Bruit annoncé', av: a.noise, bv: b.noise },
+  {
+    label: 'Note acheteurs',
+    av:
+      a.ratingCount > 0
+        ? `${a.rating.toFixed(1).replace('.', ',')}/5 (${a.ratingCount.toLocaleString('fr-FR')})`
+        : `${a.rating.toFixed(1).replace('.', ',')}/5`,
+    bv:
+      b.ratingCount > 0
+        ? `${b.rating.toFixed(1).replace('.', ',')}/5 (${b.ratingCount.toLocaleString('fr-FR')})`
+        : `${b.rating.toFixed(1).replace('.', ',')}/5`,
+  },
+];
+---
+
+<div class="compare">
+  <div class="compare__heads">
+    <div class="compare__head">
+      <a href={amazonProductUrl(a.asin)} rel="sponsored noopener" target="_blank">
+        <img
+          src={amazonImageUrl(a.imageId, 'md')}
+          alt={`${a.shortName} : vue produit`}
+          width="400"
+          height="400"
+          loading="lazy"
+        />
+      </a>
+      <h3><a href={`/bureaux/${a.slug}/`}>{a.shortName}</a></h3>
+      <a
+        class="btn btn--buy btn--buy-sm"
+        href={amazonProductUrl(a.asin)}
+        rel="sponsored noopener"
+        target="_blank">Voir l’offre <small>(lien affilié)</small></a
+      >
+    </div>
+    <p class="compare__vs" aria-hidden="true">vs</p>
+    <div class="compare__head">
+      <a href={amazonProductUrl(b.asin)} rel="sponsored noopener" target="_blank">
+        <img
+          src={amazonImageUrl(b.imageId, 'md')}
+          alt={`${b.shortName} : vue produit`}
+          width="400"
+          height="400"
+          loading="lazy"
+        />
+      </a>
+      <h3><a href={`/bureaux/${b.slug}/`}>{b.shortName}</a></h3>
+      <a
+        class="btn btn--buy btn--buy-sm"
+        href={amazonProductUrl(b.asin)}
+        rel="sponsored noopener"
+        target="_blank">Voir l’offre <small>(lien affilié)</small></a
+      >
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="compare-table">
+      <caption>
+        <strong>Critères côte à côte</strong>
+        Specs constructeur et notes acheteurs ; pas un test en laboratoire.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Critère</th>
+          <th scope="col">{a.shortName}</th>
+          <th scope="col">{b.shortName}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          rows.map((r) => (
+            <tr>
+              <th scope="row">
+                {r.label}
+                {r.hint && <span class="compare-table__hint">{r.hint}</span>}
+              </th>
+              <td>{r.av}</td>
+              <td>{r.bv}</td>
+            </tr>
+          ))
+        }
+        <tr>
+          <th scope="row">Idéal si</th>
+          <td>
+            <ul>
+              {a.bestFor.map((x) => (
+                <li>{x}</li>
+              ))}
+            </ul>
+          </td>
+          <td>
+            <ul>
+              {b.bestFor.map((x) => (
+                <li>{x}</li>
+              ))}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">À éviter si</th>
+          <td>
+            <ul>
+              {a.notFor.map((x) => (
+                <li>{x}</li>
+              ))}
+            </ul>
+          </td>
+          <td>
+            <ul>
+              {b.notFor.map((x) => (
+                <li>{x}</li>
+              ))}
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

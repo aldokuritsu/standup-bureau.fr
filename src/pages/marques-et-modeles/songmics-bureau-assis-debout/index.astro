@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Songmics bureau assis debout : l’entrée de gamme vaut-elle le coup"
+  description="Bureaux assis-debout Songmics : une marque d’ameublement à petit prix, vendue sur Amazon et sur son site. Les points à vérifier pour ne pas regretter l’économie."
+  crumbs={[
+    { label: 'Marques et modèles', href: '/marques-et-modeles/' },
+    { label: 'Songmics' },
+  ]}
+  silo="marques"
+  currentPath="/marques-et-modeles/songmics-bureau-assis-debout/"
+  h1="Songmics bureau assis-debout : <em>le petit prix, sous conditions</em>"
+>
+  <p slot="lead">
+    Songmics est une marque d’ameublement grand public, connue pour ses prix
+    serrés. Elle vend des bureaux assis-debout sur son propre site et sur
+    Amazon. Un achat raisonnable si vous savez ce que vous acceptez. Cette page
+    complète notre
+    <a href="/marques-et-modeles/">panorama des marques de bureaux réglables</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Regardez la référence exacte : plage de hauteur et charge varient d’un modèle à l’autre.',
+      'Moteur unique fréquent en entrée de gamme : réservez-le à un plateau modeste et à un poste léger.',
+      'Testez la stabilité en position haute dès la réception, pendant le délai de retour.',
+    ]}
+  />
+
+  <h2>Où se situe la marque</h2>
+  <p>
+    Songmics n’est pas un spécialiste du bureau réglable : son catalogue va des
+    fauteuils de bureau aux tabourets de bar en passant par le rangement. Ses bureaux assis-debout visent le premier achat, quand on veut
+    essayer l’alternance sans engager un gros budget.
+  </p>
+
+  <h2>Les compromis habituels de l’entrée de gamme</h2>
+  <p>
+    Sur ce segment, les avis d’acheteurs, toutes marques confondues, reviennent
+    sur les mêmes sujets : un plateau qui oscille en position haute dès qu’on
+    tape au clavier, un moteur plus lent avec un poste chargé, une hauteur
+    maximale un peu juste pour les grands. Ce ne sont pas des défauts
+    rédhibitoires pour un portable et un écran. Ils le deviennent avec deux
+    écrans sur bras articulés.
+  </p>
+
+  <h2>Le bon réflexe avant d’acheter</h2>
+  <p>
+    Comparez la fiche Songmics à un modèle équivalent d’une autre marque
+    vendue sur
+    <a href="/marques-et-modeles/bureau-assis-debout-amazon/">la marketplace d’Amazon</a>,
+    et à l’entrée de gamme
+    <a href="/marques-et-modeles/bureau-assis-debout-ikea/">du catalogue IKEA</a>,
+    que vous pouvez tester en magasin. À format et hauteur égaux, l’écart de
+    prix est souvent faible : la garantie et la facilité de retour font alors
+    la différence.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Premier bureau assis-debout, pour tester l’alternance',
+      'Un portable ou un seul écran',
+      'Un budget serré',
+    ]}
+    notFor={[
+      'Un poste chargé avec plusieurs écrans sur bras',
+      'Une grande taille qui a besoin d’une hauteur maximale élevée',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('songmics bureau assis debout')} title="Bureaux Songmics" />
+
+  <p>
+    Fiches détaillées :
+    <a href="/bureaux/songmics-lsd026-160x70/">Songmics LSD026 160×70</a>
+    (bureau complet) et
+    <a href="/bureaux/songmics-cadre-double-moteur/">cadre Songmics double moteur</a>.
+  </p>
+
+  <Sources items={[S.inrsEcran]} />
+</BaseLayout>

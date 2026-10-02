@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout électrique : comment bien le choisir"
+  description="Course de hauteur, un ou deux moteurs, bruit, mémoires, garantie : les critères qui séparent un bon bureau assis-debout électrique d’un mauvais, et la méthode pour mesurer vos besoins."
+  crumbs={[
+    { label: 'Matières et technologies', href: '/matieres-et-technologies/' },
+    { label: 'Bureau électrique' },
+  ]}
+  silo="matieres"
+  currentPath="/matieres-et-technologies/bureau-assis-debout-electrique/"
+  h1="Bureau assis-debout électrique : <em>ce qui fait la différence</em>"
+>
+  <p slot="lead">
+    Un bureau électrique se règle d’une pression, et c’est tout son intérêt.
+    Entre deux modèles au même prix, l’écart se joue sur la course, la
+    stabilité et le bruit. Si vous hésitez encore sur le principe, notre
+    <a href="/matieres-et-technologies/">comparatif électrique, manuel et manivelle</a>
+    pose les bases.
+  </p>
+
+  <Verdict
+    criteria={[
+      'La hauteur minimale et maximale doivent encadrer <strong>vos</strong> deux hauteurs de coude, assis et debout. C’est le premier filtre.',
+      'Deux moteurs pour un grand plateau, ou dès que plusieurs écrans sur bras articulés s’ajoutent au poids.',
+      'Des hauteurs mémorisées : l’INRS les cite dans ses conseils d’achat, ce n’est pas un gadget.',
+      'La garantie du moteur, parfois plus courte que celle du cadre. Lisez les deux.',
+    ]}
+  />
+
+  <h2>Commencez par mesurer vos coudes</h2>
+  <p>
+    Les fiches produits annoncent une plage de hauteur. Encore faut-il savoir
+    laquelle il vous faut. L’INRS donne des repères pour une personne de taille
+    moyenne : 68 à 76 cm pour travailler assis, 107 à 115 cm debout. Si vous êtes
+    grand, vos besoins sortent probablement de ces fourchettes, et un mètre
+    ruban vaut mieux que n’importe quelle moyenne.
+  </p>
+  <div class="formula">
+    <ol>
+      <li>
+        Debout, avec vos chaussures habituelles, laissez les bras le long du
+        corps puis pliez les coudes à angle droit. Mesurez la distance entre le
+        sol et le dessous de l’avant-bras.
+      </li>
+      <li>
+        Refaites la mesure assis, sur votre chaise réglée comme d’habitude, les
+        pieds à plat.
+      </li>
+      <li>
+        Le plateau doit pouvoir descendre un peu sous la première valeur et
+        monter un peu au-dessus de la seconde. Gardez quelques centimètres de
+        marge de chaque côté.
+      </li>
+      <li>
+        Vérifiez si la plage annoncée inclut l’épaisseur du plateau. Certaines
+        fiches donnent la hauteur du cadre seul.
+      </li>
+    </ol>
+  </div>
+
+  <h2>Un moteur ou deux</h2>
+  <p>
+    Un cadre à moteur unique entraîne les deux colonnes par un arbre de
+    transmission. C’est moins cher, et suffisant pour un plateau compact avec un
+    portable et un écran. Avec deux moteurs, chaque colonne a le sien : sur les
+    fiches des fabricants spécialisés, ces cadres affichent en général une
+    charge maximale plus élevée.
+  </p>
+  <p>
+    Pour savoir ce qu’il vous faut, additionnez le poids du plateau, des écrans,
+    des bras articulés, de l’unité centrale si elle est posée dessus, et de tout
+    ce qui traîne en permanence sur le bureau. Comparez ce total à la charge
+    annoncée, en gardant une bonne marge : un bureau qui travaille à sa limite
+    monte plus lentement et vacille davantage en position haute.
+  </p>
+
+  <h2>Deux ou trois segments de colonne</h2>
+  <p>
+    Les colonnes télescopiques sont faites de deux ou trois tubes emboîtés. Trois
+    segments, c’est en général une course plus longue : le plateau descend plus
+    bas et monte plus haut. C’est la configuration à rechercher si vous êtes
+    grand, ou si une personne de petite taille partage le poste.
+  </p>
+
+  <h2>Le bruit, les mémoires et les sécurités</h2>
+  <p>
+    Le moteur ne tourne que pendant la course, quelques secondes à chaque
+    changement. Le bruit gêne rarement en télétravail seul. En open space, en
+    réunion vidéo ou dans une chambre partagée, comparez les décibels annoncés,
+    quand le fabricant les publie.
+  </p>
+  <p>
+    Les mémoires, deux à quatre selon les claviers de commande, servent à
+    retrouver vos hauteurs assis et debout sans tâtonner. Un détecteur de
+    collision, qui stoppe le plateau s’il rencontre un obstacle, et un
+    verrouillage du clavier sont utiles si des enfants passent dans la pièce.
+  </p>
+
+  <h2>Ce qui tombe en panne, d’après les acheteurs</h2>
+  <p>
+    Les avis négatifs reviennent souvent sur les mêmes points : une colonne qui
+    monte moins vite que l’autre et laisse le plateau de travers, un code
+    d’erreur après une coupure de courant, un boîtier de commande qui lâche. La
+    plupart se règlent par une procédure de réinitialisation décrite dans la
+    notice. Les autres passent par le SAV : d’où l’intérêt d’une garantie moteur
+    longue et d’un vendeur joignable.
+  </p>
+
+  <h2>Quel plateau poser dessus</h2>
+  <p>
+    Pour deux écrans, le format qui respecte les repères de l’INRS sans
+    envahir la pièce est le 160×80 : 160 cm de large, minimum toléré, et 80 cm
+    de profondeur, valeur recommandée. Nous détaillons ce cas dans notre page
+    sur le
+    <a href="/matieres-et-technologies/bureau-assis-debout-electrique/bureau-assis-debout-electrique-160x80/"><strong>bureau électrique en 160×80</strong></a>.
+  </p>
+
+  <h2>Si l’électrique n’est pas pour vous</h2>
+  <p>
+    Vous changez de position une ou deux fois par jour, il n’y a pas de prise à
+    portée, ou le budget est serré ? Le
+    <a href="/matieres-et-technologies/bureau-assis-debout-manivelle/">bureau à manivelle</a>
+    reste un bon compromis. Et si vous comptez régler la hauteur une fois pour
+    toutes, un
+    <a href="/matieres-et-technologies/bureau-assis-debout-manuel/">modèle à réglage manuel</a>
+    coûtera nettement moins cher.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Vous voulez alterner plusieurs fois par jour, comme le conseille l’INRS',
+      'Votre poste porte deux écrans ou plus',
+      'Vous partagez le bureau avec quelqu’un d’une autre taille',
+    ]}
+    notFor={[
+      'Aucune prise n’est accessible sans rallonge au milieu du passage',
+      'Vous ne comptez pas vraiment changer de position',
+      'Votre budget ne laisse aucune marge pour un modèle correct',
+    ]}
+  />
+
+  <AffiliateButton
+    href={amazonSearch('bureau assis debout électrique double moteur')}
+    title="Bureaux électriques : comparer les modèles"
+  />
+
+  <Sources items={[S.inrsSed, S.inrsEcran, S.cochrane, S.flexispot, S.desktronic]} />
+</BaseLayout>

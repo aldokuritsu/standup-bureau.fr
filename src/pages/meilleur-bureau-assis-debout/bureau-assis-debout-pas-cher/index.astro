@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Verdict from '../../../components/Verdict.astro';
+import ForWho from '../../../components/ForWho.astro';
+import AffiliateButton from '../../../components/AffiliateButton.astro';
+import Sources from '../../../components/Sources.astro';
+import { amazonSearch } from '../../../data/silos';
+import { S } from '../../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout pas cher : où économiser, où ne pas le faire"
+  description="Bureau assis-debout pas cher : à partir de combien, ce qu’on sacrifie vraiment, les économies intelligentes. Prix de référence relevés en octobre 2026."
+  crumbs={[
+    { label: 'Meilleur bureau assis-debout', href: '/meilleur-bureau-assis-debout/' },
+    { label: 'Pas cher' },
+  ]}
+  silo="guides"
+  currentPath="/meilleur-bureau-assis-debout/bureau-assis-debout-pas-cher/"
+  eyebrow="Guides d’achat"
+  h1="Bureau assis-debout pas cher : <em>où économiser, où ne pas le faire</em>"
+>
+  <p slot="lead">
+    Un bureau électrique correct ne coûte plus une fortune : au 2 octobre 2026,
+    IKEA en vend un en 120×70 à 199 €, et en 160×80 à 270 €. Sous ces prix, on
+    peut encore bien acheter, à condition de savoir ce qu’on lâche. Ce guide
+    applique la
+    <a href="/meilleur-bureau-assis-debout/">grille du meilleur bureau assis-debout</a>
+    à un budget serré.
+  </p>
+
+  <Verdict
+    criteria={[
+      'Ne transigez jamais sur la hauteur maximale ni sur la charge : ce sont elles qui rendent un bureau inutilisable.',
+      'Économisez plutôt sur la finition du plateau, les mémoires ou le second moteur si votre poste est léger.',
+      'Refusez toute fiche sans plage de hauteur ni charge maximale affichées.',
+    ]}
+  />
+
+  <h2>Ce qu’on sacrifie vraiment à petit prix</h2>
+  <p>
+    D’abord la stabilité en position haute. Un cadre léger à moteur unique
+    oscille plus facilement quand on tape au clavier, surtout avec un grand
+    plateau. Ensuite la course : les modèles d’entrée de gamme montent souvent
+    moins haut, ce qui pénalise les grands. Enfin le service : garantie plus
+    courte, vendeur parfois difficile à joindre.
+  </p>
+  <p>
+    Le confort, lui, ne dépend pas tant du prix. Un bureau simple, bien réglé
+    à votre hauteur, fera mieux qu’un modèle cher mal installé.
+  </p>
+
+  <h2>Les économies qui ne coûtent rien à l’usage</h2>
+  <div class="formula">
+    <ol>
+      <li>
+        <strong>Le plateau.</strong> Un mélaminé uni coûte moins cher qu’un bois
+        plaqué ou massif, et ne change rien au réglage.
+      </li>
+      <li>
+        <strong>Les mémoires.</strong> Utiles, mais vous pouvez repérer vos deux
+        hauteurs avec un simple trait de crayon sur la colonne.
+      </li>
+      <li>
+        <strong>Le second moteur.</strong> Inutile pour un portable et un écran
+        sur un plateau compact.
+      </li>
+      <li>
+        <strong>Le plateau que vous avez déjà.</strong> Un cadre seul, posé sous
+        votre ancien plateau, revient souvent moins cher qu’un bureau complet.
+      </li>
+    </ol>
+  </div>
+
+  <h2>Et si le budget est vraiment minimal</h2>
+  <p>
+    Un réhausseur posé sur votre bureau actuel permet d’essayer le travail
+    debout pour moins cher qu’un bureau complet. La surface est plus réduite et
+    le clavier n’est pas toujours à bonne hauteur, mais c’est un moyen de savoir
+    si vous utiliserez vraiment la position debout avant d’investir davantage.
+  </p>
+  <p>
+    Si au contraire vous pouvez mettre un peu plus, regardez les guides sur le
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-bois/">bureau assis-debout à plateau bois</a>
+    ou sur le
+    <a href="/meilleur-bureau-assis-debout/bureau-assis-debout-design/">bureau assis-debout au look soigné</a>.
+  </p>
+
+  <ForWho
+    forWho={[
+      'Premier bureau assis-debout, pour tester l’alternance',
+      'Un poste léger : portable ou un seul écran',
+      'Vous avez déjà un plateau à réutiliser',
+    ]}
+    notFor={[
+      'Un poste lourd à plusieurs écrans sur bras',
+      'Vous êtes grand et la hauteur maximale est déjà juste',
+    ]}
+  />
+
+  <AffiliateButton href={amazonSearch('bureau assis debout électrique pas cher')} title="Bureaux électriques à petit prix" />
+
+  <Sources items={[S.ikea, S.inrsEcran]} />
+</BaseLayout>

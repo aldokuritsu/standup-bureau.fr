@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Verdict from '../../components/Verdict.astro';
+import GuideList from '../../components/GuideList.astro';
+import Sources from '../../components/Sources.astro';
+import { S } from '../../data/sources';
+---
+
+<BaseLayout
+  title="Bureau assis debout : pour qui, selon votre usage"
+  description="Bureau assis-debout pour gamer, pour télétravail intensif ou pour un poste d’entreprise partagé : les critères qui changent selon votre usage."
+  crumbs={[{ label: 'Profils d’utilisateurs' }]}
+  silo="profils"
+  currentPath="/profils-d-utilisateurs/"
+  variant="hub"
+  h1="Un bureau assis-debout, <em>pour quel usage ?</em>"
+>
+  <p slot="lead">
+    Les mêmes critères s’appliquent à tout le monde, mais pas avec le même
+    poids. Un joueur pense d’abord à la charge et aux câbles, un salarié en
+    open space au bruit et aux mémoires. Ce dossier complète notre
+    <a href="/">guide général du bureau assis-debout</a>.
+  </p>
+
+  <Verdict
+    criteria={[
+      '<strong>Gaming</strong> : charge maximale, profondeur pour la souris, stabilité en position haute, gestion des câbles.',
+      '<strong>Professionnel</strong> : hauteurs mémorisées, silence du moteur, garantie claire, poste partagé.',
+    ]}
+  />
+
+  <h2>Les deux profils détaillés</h2>
+  <GuideList
+    items={[
+      {
+        href: '/profils-d-utilisateurs/bureau-assis-debout-gamer/',
+        title: 'Bureau assis-debout gamer',
+        text: 'Une tour, deux ou trois écrans, de longues sessions : ce qui compte avant les LED.',
+      },
+      {
+        href: '/profils-d-utilisateurs/bureau-assis-debout-professionnel/',
+        title: 'Bureau assis-debout professionnel',
+        text: 'Télétravail à temps plein ou poste d’entreprise : ce que recommande l’INRS, et ce qu’il faut exiger du fournisseur.',
+      },
+    ]}
+  />
+
+  <h2>Ce qui ne change pas d’un profil à l’autre</h2>
+  <p>
+    Que vous jouiez ou que vous travailliez, l’intérêt du bureau tient à
+    l’alternance. L’INRS conseille de rompre la position assise idéalement
+    toutes les 30 minutes, et de limiter le temps assis cumulé à moins de
+    5 heures par jour. Les longues sessions, de jeu comme de travail, sont
+    justement celles où l’on oublie de bouger.
+  </p>
+
+  <Sources items={[S.inrsSed, S.inrsEcran]} />
+</BaseLayout>
