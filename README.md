@@ -15,14 +15,49 @@ npm install
 npm run dev
 ```
 
-Build :
+Build / aperçu local Astro :
 
 ```bash
 npm run build
 npm run preview
 ```
 
-Le dossier de sortie est `dist/` (à publier sur Cloudflare Pages).
+Aperçu comme sur Cloudflare Pages :
+
+```bash
+npm run preview:cf
+```
+
+Déploiement manuel Pages :
+
+```bash
+npx wrangler login
+npm run deploy
+```
+
+Le dossier de sortie est `dist/`.
+
+## Cloudflare Pages (pas Worker)
+
+Site 100 % statique : **ne pas** configurer un Worker avec `wrangler deploy`.
+
+### Via le dashboard (recommandé avec GitHub)
+
+1. Cloudflare → **Workers & Pages** → **Create** → **Pages** → Import `aldokuritsu/standup-bureau.fr`
+2. Réglages :
+   - Framework : Astro (ou None)
+   - Build command : `npm run build`
+   - Build output directory : `dist`
+   - Production branch : `main`
+3. **Pas** de « Deploy command » du type `wrangler deploy`
+4. Chaque push sur `main` redéploie
+
+### Via la CLI
+
+```bash
+npm run deploy
+# équivaut à : astro build && wrangler pages deploy dist
+```
 
 ## Notes techniques
 

@@ -1,3 +1,8 @@
+# Cloudflare Pages (site Astro 100 % statique).
+# Ne pas utiliser `wrangler deploy` : ce projet n’est pas un Worker.
+# Preview local : npm run preview:cf
+# Deploy manuel  : npm run deploy
+
 name = "standup-bureau"
 compatibility_date = "2026-10-02"
 pages_build_output_dir = "dist"
